@@ -81,7 +81,9 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Blender
-*.blend+
+*.blend1
+*.blend2
+*.blend3
 
 © 2019 GitHub, Inc.
 Terms
