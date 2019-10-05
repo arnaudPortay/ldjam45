@@ -17,7 +17,8 @@ public class Ability : MonoBehaviour
     {
     }
 
-    public void ListenerEventHandler(Collider other) 
+    virtual public void ListenerEventHandler(Collider other) 
     {
+        //print(" triggered ability ");
     }
 }

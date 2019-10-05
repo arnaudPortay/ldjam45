@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class TriggerEventSystem : MonoBehaviour
 {
-    List<Ability> listeners;
+    public List<Ability> listeners;
     // Start is called before the first frame update
     
     void Start()
     {
         listeners = new List<Ability>();
     }
-    void registerListener (Ability e)
+    public void registerListener (Ability e)
     {
-        listeners.Add(e);
+        if (!listeners.Contains(e))
+        {
+            listeners.Add(e); 
+        }
     }
 
-    void unregisterListener (Ability e)
+   public void unregisterListener (Ability e)
     {
         listeners.Remove(e);
     }
@@ -25,6 +28,7 @@ public class TriggerEventSystem : MonoBehaviour
     {
         foreach (Ability e in listeners)
         {
+            //print(" triggering : " + e.name);
             e.ListenerEventHandler(other);
         }
     }

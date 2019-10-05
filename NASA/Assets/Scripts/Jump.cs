@@ -19,6 +19,11 @@ public class Jump : Ability
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = subject.GetComponent<Rigidbody>();
+        TriggerEventSystem triggerEventSystem= subject.GetComponent<TriggerEventSystem>();
+        if (triggerEventSystem)
+        {
+            triggerEventSystem.registerListener (this);
+        }
     }
 
     protected void FixedUpdate ()
@@ -31,12 +36,15 @@ public class Jump : Ability
         bool j = Input.GetKey(KeyCode.J);
         
         if 
-            (j && ! jumping)
+            (j)
         {
-            jumping = true;
-            // Move the player around the scene.
-            jump();
-        }  
+            if (! jumping)
+            {
+                jumping = true;
+                // Move the player around the scene.
+                jump();
+            }  
+        }
     }
 
     private void jump()
@@ -48,7 +56,7 @@ public class Jump : Ability
         playerRigidbody.AddForce(new Vector3(0,jumpStr,0),ForceMode.Impulse);
     }
 
-    new void ListenerEventHandler(Collider other) 
+    public override void ListenerEventHandler(Collider other) 
     {
         // If the object collided has the "Pick Up" tag, take it.
         if 
