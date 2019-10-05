@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mouse_Rotation : Ability
 {
+    
+    public Vector3 sideAxis =  new Vector3(1,0,0);
     Vector3 movement;                   // The vector to store the direction of the player's movement.                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     public float rotateSpeed = 200;
@@ -12,15 +14,22 @@ public class Mouse_Rotation : Ability
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = subject.GetComponent<Rigidbody>();
+        //print ("Initialized rotation");
     }
 
     protected void FixedUpdate ()
     {
+        if (!subject)
+        {
+            return;
+        }
+        
         // Store the input axes.
         float y = Input.GetAxisRaw("Horizontal");
         if 
             (y !=0)
         {
+            //print ("turning");
             // Change the rotation player
             TurningToMouse (y);
         }  
@@ -33,8 +42,9 @@ public class Mouse_Rotation : Ability
             InitAbility();
         }
 
+        Vector3 move = sideAxis*h;
         // Set the movement vector based on the axis input.
-        movement.Set (0f, h, 0f);
+        movement.Set (move.x,move.y,move.z);
 
         // Normalise the movement vector and make it proportional to the rotate speed per second.
         movement = movement.normalized * rotateSpeed;
