@@ -6,10 +6,11 @@ using System;
 using TMPro;
 
 using System.IO;
+using UnityEngine.Events;
 
 public class bootScript: MonoBehaviour
 {
-    public TextMeshProUGUI text2;
+    private TextMeshProUGUI text2;
 
     private RectTransform rectTransform;
 
@@ -23,6 +24,11 @@ public class bootScript: MonoBehaviour
 
     private int delay = 2;
     private float counter = 0.0f;
+    
+    public UnityEvent bootOver;
+
+    public float waitTimeAfterBoot = 2.0f;
+    private float timeAfterBoot = 0.0f;
  
     void Start () {
         theSourceFile = new FileInfo ("Assets\\Texts\\bootText.txt");
@@ -50,6 +56,18 @@ public class bootScript: MonoBehaviour
                 first = false;
                 rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y + 14f);
                 rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y + 14f);
+                
+            }
+            else
+            {
+                timeAfterBoot += Time.deltaTime;
+                if (timeAfterBoot > waitTimeAfterBoot)
+                {
+                    if (bootOver != null)
+                    {
+                        bootOver.Invoke();
+                    }
+                }
             }
         }
         else
