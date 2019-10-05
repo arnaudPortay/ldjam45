@@ -15,7 +15,7 @@ public class Jump : Ability
         
     }
 
-    new protected void InitAbility ()
+    protected override void InitAbility ()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = subject.GetComponent<Rigidbody>();
