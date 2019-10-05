@@ -25,7 +25,7 @@ public class CollectItem : MonoBehaviour {
         {
             // Desactive the object (for now)
             //pOther.gameObject.SetActive (false);
-            
+            pOther.gameObject.tag = "Picked";
             // Get the ability component
             Ability lAbilityObject = pOther.gameObject.GetComponent(typeof(Ability)) as Ability;
             if
