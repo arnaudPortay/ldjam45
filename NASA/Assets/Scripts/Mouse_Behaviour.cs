@@ -5,6 +5,7 @@ using UnityEngine;
 public class Mouse_Behaviour : MonoBehaviour
 {
     public float speed = 10f;   
+    public Vector3 frontAxis =  new Vector3(0,1,0);
     Vector3 movement;                   // The vector to store the direction of the player's movement.                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
 
@@ -29,8 +30,9 @@ public class Mouse_Behaviour : MonoBehaviour
 
     void Move (float h)
     {
+        Vector3 move = frontAxis*h;
         // Set the movement vector based on the axis input.
-        movement.Set (0f, 0f, h);
+        movement.Set (move.x,move.y,move.z);
         
         // Normalise the movement vector and make it proportional to the speed per second.
         movement = transform.TransformVector(movement).normalized * speed * Time.deltaTime;
