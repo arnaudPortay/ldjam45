@@ -48,7 +48,7 @@ public class Jump : Ability
         playerRigidbody.AddForce(new Vector3(0,jumpStr,0),ForceMode.Impulse);
     }
 
-    void OnTriggerEnter(Collider other) 
+    new void ListenerEventHandler(Collider other) 
     {
         // If the object collided has the "Pick Up" tag, take it.
         if 
@@ -57,4 +57,5 @@ public class Jump : Ability
             jumping = false;
         }
     }
+
 }

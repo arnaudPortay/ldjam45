@@ -16,4 +16,8 @@ public class Ability : MonoBehaviour
     protected void InitAbility ()
     {
     }
+
+    public void ListenerEventHandler(Collider other) 
+    {
+    }
 }
