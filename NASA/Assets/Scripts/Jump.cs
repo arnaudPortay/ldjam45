@@ -7,6 +7,8 @@ public class Jump : Ability
     bool jumping = false;
     Rigidbody playerRigidbody; 
     public float jumpStr = 1.0f;
+
+    public string ground = "Ground";
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,15 @@ public class Jump : Ability
              playerRigidbody = subject.GetComponent<Rigidbody>();
         }
         playerRigidbody.AddForce(new Vector3(0,jumpStr,0),ForceMode.Impulse);
-        jumping = false;
+    }
+
+    void OnTriggerEnter(Collider other) 
+    {
+        // If the object collided has the "Pick Up" tag, take it.
+        if 
+            (other.gameObject.CompareTag (ground))
+        {
+            jumping = false;
+        }
     }
 }
