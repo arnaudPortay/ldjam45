@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class Jump : Ability
 {
@@ -33,17 +34,14 @@ public class Jump : Ability
             return;
         }
         // Store the input axes.
-        bool j = Input.GetKey(KeyCode.J);
+        bool j = Input.GetKey(KeyCode.Space);
         
         if 
-            (j)
+            (j && !jumping)
         {
-            if (! jumping)
-            {
-                jumping = true;
-                // Move the player around the scene.
-                jump();
-            }  
+            jumping = true;
+            // Move the player around the scene.
+            jump();
         }
     }
 
@@ -55,14 +53,18 @@ public class Jump : Ability
         }
         playerRigidbody.AddForce(new Vector3(0,jumpStr,0),ForceMode.Impulse);
     }
-
+    private async Task delayedWork()
+    {
+        await Task.Delay(50);
+        jumping = false;
+    }
     public override void ListenerEventHandler(Collider other) 
     {
         // If the object collided has the "Pick Up" tag, take it.
         if 
             (other.gameObject.CompareTag (ground))
         {
-            jumping = false;
+            this.delayedWork();
         }
     }
 
