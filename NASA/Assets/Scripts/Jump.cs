@@ -8,7 +8,8 @@ public class Jump : Ability
     bool jumping = false;
     Rigidbody playerRigidbody; 
     public float jumpStr = 1.0f;
-
+    private float timebeforejump = 0.0f;
+    public float delay = 50.0f;
     public string ground = "Ground";
     // Start is called before the first frame update
     void Start()
