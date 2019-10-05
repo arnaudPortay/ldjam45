@@ -17,14 +17,22 @@ public class CollectItem : MonoBehaviour {
     {
     }
 
-    void OnTriggerEnter(Collider other) 
+    void OnTriggerEnter(Collider pOther) 
     {
         // If the object collided has the "Pick Up" tag, take it.
         if 
-            (other.gameObject.CompareTag ("Pick Up"))
+            (pOther.gameObject.CompareTag ("Pick Up"))
         {
-            other.gameObject.SetActive (false);
-            // TODO : setSubject to ability object
+            // Desactive the object (for now)
+            //pOther.gameObject.SetActive (false);
+            
+            // Get the ability component
+            Ability lAbilityObject = pOther.gameObject.GetComponent(typeof(Ability)) as Ability;
+            if
+                (lAbilityObject != null)
+            {
+                lAbilityObject.setSubject(gameObject);
+            }
         }
     }
 }

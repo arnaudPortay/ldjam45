@@ -6,14 +6,14 @@ public class Ability : MonoBehaviour
 {
     public GameObject subject; 
     // Start is called before the first frame update
-    void setSubject(GameObject g)
+    public void setSubject(GameObject g)
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         subject = g;
         InitAbility();
     }
 
-    protected void InitAbility ()
+    virtual protected void InitAbility ()
     {
     }
 }
