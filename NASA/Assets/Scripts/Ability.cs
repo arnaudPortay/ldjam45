@@ -20,6 +20,7 @@ public class Ability : MonoBehaviour
         {
             RelatedPart.SetActive(true);
         }
+        GetComponent<MeshRenderer>().enabled = false;
         InitAbility();
     }
 
