@@ -21,9 +21,11 @@ public class Flashlight : Ability
     protected override void InitAbility ()
     {
         //print("initialized");
-
-        myLight = GetComponent<Light>();
-
+        if (RelatedPart)
+        {
+            myLight = RelatedPart.GetComponent<Light>();
+        }
+        
         if
             (myLight)
         {
