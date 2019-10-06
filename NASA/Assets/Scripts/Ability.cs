@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Ability : MonoBehaviour
 {
+    void Start ()
+    {
+        gameObject.tag = "Pick Up";
+    }
+
     public GameObject subject; 
     // Start is called before the first frame update
     public void setSubject(GameObject g)
