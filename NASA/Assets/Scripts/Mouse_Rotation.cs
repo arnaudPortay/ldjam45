@@ -10,6 +10,8 @@ public class Mouse_Rotation : Ability
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     public float rotateSpeed = 200;
 
+    Quaternion baseRotation;
+
      new protected void InitAbility ()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
@@ -26,13 +28,11 @@ public class Mouse_Rotation : Ability
         
         // Store the input axes.
         float y = Input.GetAxisRaw("Horizontal");
-        if 
-            (y !=0)
-        {
-            //print ("turning");
-            // Change the rotation player
-            TurningToMouse (y);
-        }  
+
+        //print ("turning");
+        // Change the rotation player
+        TurningToMouse (y);
+        
     }
 
     void TurningToMouse (float h)
@@ -41,16 +41,20 @@ public class Mouse_Rotation : Ability
         {
             InitAbility();
         }
+        if (h!= 0)
+        {
+             Vector3 move = sideAxis*h;
+            // Set the movement vector based on the axis input.
+            movement.Set (move.x,move.y,move.z);
 
-        Vector3 move = sideAxis*h;
-        // Set the movement vector based on the axis input.
-        movement.Set (move.x,move.y,move.z);
+            // Normalise the movement vector and make it proportional to the rotate speed per second.
+            movement = movement.normalized * rotateSpeed;
 
-        // Normalise the movement vector and make it proportional to the rotate speed per second.
-        movement = movement.normalized * rotateSpeed;
+            // Move the player to it's current position plus the movement.
+            Quaternion deltaRotation = Quaternion.Euler(movement * Time.deltaTime);
+            playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);
 
-        // Move the player to it's current position plus the movement.
-        Quaternion deltaRotation = Quaternion.Euler(movement * Time.deltaTime);
-        playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);
+        }
+       
     }
 }
