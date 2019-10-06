@@ -14,13 +14,12 @@ public class bootScript: MonoBehaviour
 
     private RectTransform rectTransform;
 
-    private int newLineCount = 0;
-
     protected FileInfo theSourceFile = null;
     protected StreamReader reader = null;
-    protected string text = " "; // assigned to allow first line to be read below
+    protected string text = " ";
 
-    private bool first = true;
+    private string line = "";
+
 
     private int delay = 2;
     private float counter = 0.0f;
@@ -41,22 +40,20 @@ public class bootScript: MonoBehaviour
 
         if (counter >= delay)
         {
-            if (text != null) 
+            if (line != null) 
             {
-                text = reader.ReadLine();
-                text2.text += "\r\n" + text;
-                newLineCount++;
-                if (newLineCount >= 20)
+                line = reader.ReadLine();
+                text = text2.text + "\r\n" + line;
+
+                // Check if text size is bigger than allowed size
+                if (LayoutUtility.GetPreferredHeight(text2.rectTransform) >  rectTransform.rect.height)
                 {
-                    rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y + 14f);
-                } 
-            }
-            else if (first)
-            {
-                first = false;
-                rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y + 14f);
-                rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y + 14f);
-                
+                    text2.text = text.Substring(text.IndexOf("\r\n") + 4);
+                }
+                else
+                {
+                    text2.text = text;
+                }
             }
             else
             {
