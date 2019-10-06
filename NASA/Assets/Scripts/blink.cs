@@ -35,6 +35,10 @@ public class blink : MonoBehaviour
                 image.enabled = !image.enabled;                
             }            
         }
+        else if (image.enabled)
+        {
+            image.enabled = false;
+        }
     }
 
     public void startBlink()
