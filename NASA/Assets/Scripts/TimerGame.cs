@@ -50,7 +50,7 @@ public class TimerGame : MonoBehaviour
                 // The break part is finished, we can play
                 PlayerMouse_Behaviour.canMove = true;
                 temps = tempsint;
-                temps2=0;
+                temps2 = 0;
             }
         }  
     }

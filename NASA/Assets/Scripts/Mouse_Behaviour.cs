@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mouse_Behaviour : MonoBehaviour
 {
-    public float speed = 10f;   
+    public float speed = 5f; 
     public Vector3 frontAxis =  new Vector3(0,1,0);
     Vector3 movement;                   // The vector to store the direction of the player's movement.                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
