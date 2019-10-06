@@ -13,6 +13,7 @@ public class Nitro : Ability
     public float temps2 = 0;
     public int tempsint2 = 6;
     public Slider nitroSlider; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,17 @@ public class Nitro : Ability
 
     private void acceleration()
     {
+        // Color Slider part
+        GameObject fill = nitroSlider.transform.GetChild (1).GetChild (0).gameObject; 
+        Image fillImage = fill.GetComponent<Image> ();
+        Color newColour = new Color(                                             
+                                1f - (nitroSlider.value/nitroSlider.maxValue),     // R - empty
+                                nitroSlider.value/nitroSlider.maxValue,            // G - full
+                                0f                                       // B - Unused
+                            );
+        fillImage.color = newColour;     
+
+
         bool n = Input.GetKey(KeyCode.N);
         nitroSlider.value = temps;
 
@@ -79,10 +91,14 @@ public class Nitro : Ability
         {
             // Temps maximal autorisé atteint et fin du boost, rechargement lent
             temps2 -= Time.fixedDeltaTime;
+            nitroSlider.value = (tempsint2-temps2)*tempsint/tempsint2;
+            // Color Slider part
+            newColour = new Color( 0,0,0);
+            fillImage.color = newColour;  
         }
         else
         {
             nitroSlider.value = tempsint;
-        }       
+        }    
     }
 }
