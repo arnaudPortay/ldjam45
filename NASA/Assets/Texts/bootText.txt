@@ -51,7 +51,7 @@ rooting via boot-uuid from /chosen: F5670083-AC74-33D3-8361-AC1977EE4AA2
 Waiting on <dict ID="0"><key>IOProviderClass</key><string ID="1">
 IOResources</string><key>IOResourceMatch</key><string ID="2">boot-uuid-media</string></dict>
 Got boot device = IOService:/NOTHINGACPIPlatformExpert/PCI0@0/NOTHINGACPIPCI/SATA@1F,2/
-NOTHINGIntelPchSeriesAHCI/PRT0@0/IOAHCIDevice@0/NOTHINGAHCIDiskDriver/SarahI@sTheBestDriverIOAHCIBlockStorageDevice/IOBlockStorageDriver/
+NOTHINGIntelPchSeriesAHCI/PRT0@0/IOAHCIDevice@0/NOTHINGAHCIDiskDriver/
 NOTHING SSD TS128C Media/IOGUIDPartitionScheme/Customer@2
 BSD root: disk0s2, major 14, minor 2
 Kernel is LP64
@@ -72,7 +72,7 @@ NTFS driver 3.8 [Flags: R/W].
 NTFS volume name BOOTCAMP, version 3.1.
 DSMOS has arrived
 en1: 802.11d country code set to 'US'.
-en1: Supported channels 1 2 3 4 5 6 7 8 9 10 11 36 40 44 48 52 56 60 64 100 104 108 112 116 120 124 128 132 136 140 149 153 157 161 165
+en1: Supported channels 1 2 3 4 5 6 7 8 9 10 11 36 40 44 48 52 56 60 64 100 104 
 m_thebest 
 MacAuthEvent en1   Auth result for: 00:60:64:1e:e9:e4  MAC AUTH succeeded
 Downloading <color=#FF69B4>Twilight Zone</color>...
