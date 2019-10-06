@@ -13,11 +13,18 @@ public class Nitro : Ability
     public float temps2 = 0;
     public int tempsint2 = 6;
     public Slider nitroSlider; 
+    private GameObject test;
+    private Color newColour;
+    private GameObject fill; 
+    private Image fillImage;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        test = nitroSlider.transform.gameObject; 
+        nitroSlider.maxValue = tempsint;
+        fill = nitroSlider.transform.GetChild (1).GetChild (0).gameObject; 
+        fillImage = fill.GetComponent<Image> ();
     }
 
     protected override void InitAbility ()
@@ -37,26 +44,29 @@ public class Nitro : Ability
         {
             return;
         }
-        nitroSlider.maxValue = tempsint;
+        
+        if ( !test.activeSelf)
+        {
+            test.SetActive(true);
+            nitroSlider.enabled = true;
+        
+        }     
         acceleration();
     }
 
     private void acceleration()
     {
         // Color Slider part
-        GameObject fill = nitroSlider.transform.GetChild (1).GetChild (0).gameObject; 
-        Image fillImage = fill.GetComponent<Image> ();
-        Color newColour = new Color(                                             
+        newColour = new Color(                                             
                                 1f - (nitroSlider.value/nitroSlider.maxValue),     // R - empty
                                 nitroSlider.value/nitroSlider.maxValue,            // G - full
                                 0f                                       // B - Unused
                             );
-        fillImage.color = newColour;     
-
+        fillImage.color = newColour;   
 
         bool n = Input.GetKey(KeyCode.N);
         nitroSlider.value = temps;
-
+    
         if (!playerRigidbody)
         {
              playerRigidbody = subject.GetComponent<Rigidbody>();
@@ -67,6 +77,8 @@ public class Nitro : Ability
             //début de l'accélération
             playerRigidbody.AddRelativeForce(Vector3.down * fastAndFuriousSpeed);
             temps = tempsint;
+            nitroSlider.value = temps;
+            //nitroSlider.enabled = true;
         }
         else if
             (temps > 0 && temps2 <=0 && n)
@@ -98,7 +110,7 @@ public class Nitro : Ability
         }
         else
         {
-            nitroSlider.value = tempsint;
-        }    
+            nitroSlider.value = tempsint;   
+        }  
     }
 }
