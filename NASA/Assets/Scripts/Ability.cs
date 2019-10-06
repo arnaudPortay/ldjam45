@@ -20,7 +20,16 @@ public class Ability : MonoBehaviour
         {
             RelatedPart.SetActive(true);
         }
-        GetComponent<MeshRenderer>().enabled = false;
+        MeshRenderer msh = GetComponent<MeshRenderer>();
+        if (msh)
+        {
+            msh.enabled = false;
+        }
+        foreach (MeshRenderer childmesh in GetComponentsInChildren<MeshRenderer>())
+        {
+            if (childmesh) childmesh.enabled = false;
+        }
+        
         InitAbility();
     }
 
