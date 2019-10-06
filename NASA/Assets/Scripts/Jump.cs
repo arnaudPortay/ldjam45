@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 public class Jump : Ability
 {
-    bool jumping = false;
+    public bool jumping = false;
     Rigidbody playerRigidbody; 
     public float jumpStr = 1.0f;
-
+    public float timebeforejump = 0.0f;
+    public bool timerstarted = false;
+    public float delay = 0.05f;
     public string ground = "Ground";
     // Start is called before the first frame update
     void Start()
@@ -29,13 +31,26 @@ public class Jump : Ability
 
     protected void FixedUpdate ()
     {
+        
+        
         if (!subject)
         {
             return;
         }
         // Store the input axes.
         bool j = Input.GetKey(KeyCode.Space);
-        
+        if (timerstarted)
+        {
+            if (timebeforejump < 0)
+            {
+                delayedWork();
+                timerstarted = false;
+            }
+            else
+            {
+                timebeforejump -= Time.fixedDeltaTime;
+            }
+        }
         if 
             (j && !jumping)
         {
@@ -43,6 +58,7 @@ public class Jump : Ability
             // Move the player around the scene.
             jump();
         }
+
     }
 
     private void jump()
@@ -53,9 +69,9 @@ public class Jump : Ability
         }
         playerRigidbody.AddForce(new Vector3(0,jumpStr,0),ForceMode.Impulse);
     }
-    private async Task delayedWork()
+    public void delayedWork()
     {
-        await Task.Delay(50);
+        //print("delayed call");
         jumping = false;
     }
     public override void ListenerEventHandler(Collider other) 
@@ -64,7 +80,8 @@ public class Jump : Ability
         if 
             (other.gameObject.CompareTag (ground))
         {
-            this.delayedWork();
+            timebeforejump = delay;
+            timerstarted = true;
         }
     }
 
