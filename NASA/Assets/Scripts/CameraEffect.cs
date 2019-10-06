@@ -3,8 +3,7 @@
 //behaviour which should lie on the same gameobject as the main camera
 public class CameraEffect : MonoBehaviour {
 	//material that's applied when doing postprocessing
-	[SerializeField]
-	private Material postprocessMaterial;
+	public Material postprocessMaterial;
 
 	//method which is automatically called by unity after the camera is done rendering
 	void OnRenderImage(RenderTexture source, RenderTexture destination){
