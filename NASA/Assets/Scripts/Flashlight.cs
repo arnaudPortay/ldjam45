@@ -11,45 +11,58 @@ public class Flashlight : Ability
     private Light myLight;
      bool Toggleable = true;
     private int mCurrentColorIndex;
-
+    public float timebeforeend = 0.0f;
+    public bool timerstarted = false;
+    public float delay = 0.05f;
     void Start()
     {
         mCurrentColorIndex = 0;
     }
     protected override void InitAbility ()
     {
-        print("initialized");
+        //print("initialized");
 
         myLight = GetComponent<Light>();
 
         if
             (myLight)
         {
-             print("mylight OK");
+             //print("mylight OK");
             myLight.color = mColors[mCurrentColorIndex];
             myLight.enabled = true; 
         }
     }
-    private async Task delayedWork()
+    private void delayedWork()
     {
-        await Task.Delay(200);
         Toggleable = true;
     }
     void FixedUpdate ()
     {
-
+        if (timerstarted)
+        {
+            if (timebeforeend < 0)
+            {
+                delayedWork();
+                timerstarted = false;
+            }
+            else
+            {
+                timebeforeend -= Time.fixedDeltaTime;
+            }
+        }
         if
             ( !myLight)
         {
             return;
         }
-        print("active");
+        //print("active");
         if(Toggleable && Input.GetKey(KeyCode.R))
         {
             Toggleable = false;
             //print("toggled");
             myLight.enabled = !myLight.enabled;
-            this.delayedWork();
+            timebeforeend = delay;
+            timerstarted = true;
         }
 
         // F key to change the color of the light
@@ -61,7 +74,8 @@ public class Flashlight : Ability
             mCurrentColorIndex = (mCurrentColorIndex + 1) % mColors.Length;
             myLight.color = mColors[mCurrentColorIndex];
 
-            this.delayedWork();
+            timebeforeend = delay;
+            timerstarted = true;
         }
     }
 }
