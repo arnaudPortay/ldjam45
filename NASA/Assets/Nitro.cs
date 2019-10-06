@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine.UI;
 
 public class Nitro : Ability
 {
@@ -11,6 +12,7 @@ public class Nitro : Ability
     public int tempsint = 3;
     public float temps2 = 0;
     public int tempsint2 = 6;
+    public Slider nitroSlider; 
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +36,14 @@ public class Nitro : Ability
         {
             return;
         }
+        nitroSlider.maxValue = tempsint;
         acceleration();
     }
 
     private void acceleration()
     {
         bool n = Input.GetKey(KeyCode.N);
+        nitroSlider.value = temps;
 
         if (!playerRigidbody)
         {
@@ -73,8 +77,12 @@ public class Nitro : Ability
         else if
             (temps2 > 0)
         {
-            // Temps maximal autorisé atteint et fin du bosst, rechargement lent
+            // Temps maximal autorisé atteint et fin du boost, rechargement lent
             temps2 -= Time.fixedDeltaTime;
         }
+        else
+        {
+            nitroSlider.value = tempsint;
+        }       
     }
 }
