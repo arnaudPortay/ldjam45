@@ -10,11 +10,17 @@ public class Ability : MonoBehaviour
     }
 
     public GameObject subject; 
+    public GameObject RelatedPart;
     // Start is called before the first frame update
     public void setSubject(GameObject g)
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         subject = g;
+        if (RelatedPart)
+        {
+            RelatedPart.SetActive(true);
+        }
+        GetComponent<MeshRenderer>().enabled = false;
         InitAbility();
     }
 

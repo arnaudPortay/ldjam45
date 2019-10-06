@@ -76,6 +76,7 @@ public class Jump : Ability
     }
     public override void ListenerEventHandler(Collider other) 
     {
+        //print (this.name + " triggered");
         // If the object collided has the "Pick Up" tag, take it.
         if 
             (other.gameObject.CompareTag (ground))
