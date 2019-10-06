@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 760543660}
   m_Layer: 0
   m_Name: Follow Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2249,6 +2249,7 @@ MonoBehaviour:
   StartTIme: 10
   BreakTime: 2
   player: {fileID: 842123610}
+  cameraFollow: {fileID: 760543661}
 --- !u!1 &1804546021 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6904155381527803451, guid: c9ae18331cf9e87459165679d96e9686,

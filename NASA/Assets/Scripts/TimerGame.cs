@@ -18,12 +18,15 @@ public class TimerGame : MonoBehaviour
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     Mouse_Behaviour PlayerMouse_Behaviour;
     bool started = false;
+    bool firstDeath = true;
+    public Camera cameraFollow;
 
     // Start is called before the first frame update
     void Start()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = player.GetComponent<Rigidbody>();
+        initialPos = playerRigidbody.position;
         PlayerMouse_Behaviour = player.GetComponent<Mouse_Behaviour>();
     }
 
@@ -57,7 +60,13 @@ public class TimerGame : MonoBehaviour
             // Play part is finished, we go back to the beginning
             CurrentBreakTime = BreakTime;           
             PlayerMouse_Behaviour.canMove = false;
-            playerRigidbody.position = initialPos;              
+            playerRigidbody.position = initialPos;    
+            if (firstDeath && cameraFollow)
+            {
+                Camera.main.gameObject.SetActive(false);
+                cameraFollow.gameObject.SetActive(true);
+                firstDeath = false;
+            }          
         }  
          if
             (CurrentTime <= 0 && CurrentBreakTime > 0)
