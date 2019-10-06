@@ -688,12 +688,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: -3541596549365640876, guid: c9ae18331cf9e87459165679d96e9686,
+    - target: {fileID: -1170926224595886150, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: -1170926224595886150, guid: c9ae18331cf9e87459165679d96e9686,
+    - target: {fileID: -3541596549365640876, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
       value: Ground
@@ -703,7 +703,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 3673002997041546293, guid: c9ae18331cf9e87459165679d96e9686,
+    - target: {fileID: 7394083982411414941, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
       value: Ground
@@ -713,12 +713,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 7394083982411414941, guid: c9ae18331cf9e87459165679d96e9686,
+    - target: {fileID: 8860952572051987866, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 8860952572051987866, guid: c9ae18331cf9e87459165679d96e9686,
+    - target: {fileID: 3673002997041546293, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
       value: Ground
@@ -2810,20 +2810,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3982964237844029140}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3815906325796984045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3815906325796984044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8c01225360b26458b0a6ff644393aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 300
-  RotationAxis: {x: 0, y: 0, z: 1}
 --- !u!1001 &3982964237844029140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2894,7 +2880,47 @@ PrefabInstance:
     - target: {fileID: 266422983852853816, guid: ca9753a131f59a54d8ac341560d1472f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342059024148962040, guid: ca9753a131f59a54d8ac341560d1472f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.04857035
+      objectReference: {fileID: 0}
+    - target: {fileID: 342059024148962040, guid: ca9753a131f59a54d8ac341560d1472f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.34184644
+      objectReference: {fileID: 0}
+    - target: {fileID: 342059024148962040, guid: ca9753a131f59a54d8ac341560d1472f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.9047131
+      objectReference: {fileID: 0}
+    - target: {fileID: 342059024148962040, guid: ca9753a131f59a54d8ac341560d1472f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.24955183
+      objectReference: {fileID: 0}
+    - target: {fileID: 342059024148962040, guid: ca9753a131f59a54d8ac341560d1472f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -146.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 342059024148962040, guid: ca9753a131f59a54d8ac341560d1472f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 342059024148962040, guid: ca9753a131f59a54d8ac341560d1472f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 6.2000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958245331664612568, guid: ca9753a131f59a54d8ac341560d1472f,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9202709108085801210, guid: ca9753a131f59a54d8ac341560d1472f, type: 3}
