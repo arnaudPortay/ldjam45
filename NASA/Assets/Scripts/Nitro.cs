@@ -75,7 +75,7 @@ public class Nitro : Ability
             (temps <= 0 && temps2 <=0 && n)
         {
             //début de l'accélération
-            playerRigidbody.AddRelativeForce(Vector3.down * fastAndFuriousSpeed);
+            playerRigidbody.AddRelativeForce(Vector3.forward * fastAndFuriousSpeed);
             temps = tempsint;
             nitroSlider.value = temps;
             //nitroSlider.enabled = true;
@@ -84,7 +84,7 @@ public class Nitro : Ability
             (temps > 0 && temps2 <=0 && n)
         {
             //accélération jusqu'à la fin du temps autorisé
-            playerRigidbody.AddRelativeForce(Vector3.down * fastAndFuriousSpeed);
+            playerRigidbody.AddRelativeForce(Vector3.forward * fastAndFuriousSpeed);
             temps -= Time.fixedDeltaTime;
             if (temps <= 0)
             {
