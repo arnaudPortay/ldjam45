@@ -11,137 +11,89 @@ public class CollectItem : MonoBehaviour {
 
     public GameObject GameEngine;
     public UnityEvent EndGameEvent;
-
     public GameObject cameraFollow;
     // Time to move from sunrise to sunset position, in seconds.
     public float journeyTime = 1.0f;
-    public float tilt = 2.0f;
     // The time at which the animation started.
     private float startTime;
-    Vector3 initialpos;
-    Quaternion initialRotation;
-     Vector3 initialRelativPos;
-    Quaternion initialRelativRot;
-    Vector3 newpos;
-    Vector3 intermediatePos;
 
     public GameObject Queue;
     public float AdditionnalTime = 5.0f;
 
     public bool relocate = false;
-    public bool relocate2 = false;
+	public Transform pathParent;
+	Transform targetPoint;
+
+    Vector3 oldPosition;
+    Quaternion oldOrientation;
+	int index;
+
+	void OnDrawGizmos()
+	{
+		Vector3 from;
+		Vector3 to;
+		for (int a=0; a<pathParent.childCount; a++)
+		{
+			from = pathParent.GetChild(a).position;
+			to = pathParent.GetChild((a+1) % pathParent.childCount).position;
+			Gizmos.color = new Color (1, 0, 0);
+			Gizmos.DrawLine (from, to);
+		}
+	}
+	
     void Start ()
     {
-        initialpos = cameraFollow.transform.position;
-        initialRelativPos = transform.InverseTransformVector(initialpos);
-        initialRotation = cameraFollow.transform.rotation;
-        initialRelativRot = Quaternion.Inverse(transform.rotation) * initialRotation;
+        index = 0;
+		targetPoint = pathParent.GetChild (index);
     }
 
     void FixedUpdate ()
     {
         if (relocate)
         {
-            cameraFollow.transform.LookAt(transform.position);
-            // The center of the arc
-            Vector3 center = transform.position;
-
-            // Interpolate over the arc relative to center
-            Vector3 riseRelCenter = newpos - center;
-            Vector3 setRelCenter = intermediatePos - center;
-
-            // The fraction of the animation that has happened so far is
-            // equal to the elapsed time divided by the desired time for
-            // the total journey.
-            float fracComplete = (Time.fixedTime - startTime) / journeyTime;
-
-            cameraFollow.transform.position = Vector3.Slerp(riseRelCenter, setRelCenter, fracComplete);
-            cameraFollow.transform.position += center;
-            if (Vector3.Distance(cameraFollow.transform.position, intermediatePos) < 0.0001f)
+           cameraFollow.transform.LookAt(transform.position);
+           cameraFollow.transform.position = Vector3.MoveTowards (cameraFollow.transform.position, targetPoint.position, journeyTime * Time.fixedDeltaTime);
+            if (Vector3.Distance (cameraFollow.transform.position, targetPoint.position) < 0.1f) 
             {
-                setTurning(false,1);
-            }
-        }
-        else if (relocate2)
-        {
-            cameraFollow.transform.LookAt(transform.position);
-            // The center of the arc
-            Vector3 center = transform.position;
-
-            // Interpolate over the arc relative to center
-            Vector3 riseRelCenter = intermediatePos - center;
-            Vector3 setRelCenter = initialpos - center;
-
-            // The fraction of the animation that has happened so far is
-            // equal to the elapsed time divided by the desired time for
-            // the total journey.
-            float fracComplete = (Time.time - startTime) / journeyTime;
-
-            cameraFollow.transform.position = Vector3.Slerp(riseRelCenter, setRelCenter, fracComplete);
-            cameraFollow.transform.position += center;
-            if (Vector3.Distance(cameraFollow.transform.position, initialpos) < 0.0001f)
-            {
-                setTurning(false,0);
+                index++;
+                index %= pathParent.childCount;
+                targetPoint = pathParent.GetChild (index);
+                if (index == 0)
+                {
+                    setTurning(false);
+                }
             }
         }
         
     }
-    void setTurning(bool sure, int rel)
+    void setTurning(bool sure)
     {
         if (sure)
         {
-            // initialisation de starttime, newpos et intermediatePos
-            Vector3 relativePos = initialpos - transform.position;
-            Vector3 relocation = relativePos;
-            relocation.z *=-2;
-            relocation.x*=-2;
-            cameraFollow.transform.position = transform.position + relocation;
-            newpos = cameraFollow.transform.position;
-            intermediatePos = new Vector3(0,1,0); // up vector
-            Vector3 vectProd = Vector3.Cross(intermediatePos,newpos);
-            vectProd.Normalize();
-            intermediatePos+=vectProd*tilt;
-            print("initial pos : "+initialpos);
-            print("relocation: "+relocation);
-            print("intermediatePos : "+intermediatePos);
-
-            Mouse_Behaviour behave = GetComponent<Mouse_Behaviour>();
-            if (behave)
-            {
-                behave.canMove = !sure;
-            }
-            Mouse_Rotation rotate = Queue.GetComponent<Mouse_Rotation>();
-            if (rotate)
-            {
-                rotate.canRotate = !sure;
-            }
-        }
-        if (rel == 1)
-        {
-            relocate = sure;
-            relocate2 = !sure;
-            startTime = Time.fixedTime;
+            oldPosition = cameraFollow.transform.position;
+            cameraFollow.transform.position = targetPoint.position;
+            oldOrientation = cameraFollow.transform.rotation;
         }
         else
         {
-            //fin
-            relocate2 = sure;
-            //cameraFollow.transform.rotation = Quaternion.Inverse(transform.rotation) * initialRotation;
-            //cameraFollow.transform.position = transform.TransformVector(initialRelativPos);
-            Mouse_Behaviour behave = GetComponent<Mouse_Behaviour>();
-            if (behave)
-            {
-                behave.canMove = !sure;
-            }
-            Mouse_Rotation rotate = Queue.GetComponent<Mouse_Rotation>();
-            if (rotate)
-            {
-                rotate.canRotate = !sure;
-            }
+            cameraFollow.transform.rotation = oldOrientation;
+            cameraFollow.transform.position = oldPosition;
         }
-        
-        
-}
+        //fin
+        relocate = sure;
+        //cameraFollow.transform.rotation = Quaternion.Inverse(transform.rotation) * initialRotation;
+        //cameraFollow.transform.position = transform.TransformVector(initialRelativPos);
+        Mouse_Behaviour behave = GetComponent<Mouse_Behaviour>();
+        if (behave)
+        {
+            behave.canMove = !sure;
+        }
+        Mouse_Rotation rotate = Queue.GetComponent<Mouse_Rotation>();
+        if (rotate)
+        {
+            rotate.canRotate = !sure;
+        }  
+    }
     void OnTriggerEnter(Collider pOther) 
     {
         // If the object collided has the "Pick Up" tag, take it.
@@ -164,7 +116,7 @@ public class CollectItem : MonoBehaviour {
             }
             if (cameraFollow)
             {
-                setTurning(true,1);
+                setTurning(true);
             }
         }
         else if (pOther.gameObject.CompareTag("endZone")) 

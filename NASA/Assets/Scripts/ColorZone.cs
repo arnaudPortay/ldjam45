@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ColorZone : MonoBehaviour
 {
     public string ColorZoneTag = "ColorZone";
 
     public Light mLight;
-
-    public GameEngine gameEngine;
 
     public GameObject[] mPlanes = new GameObject[3];
 
@@ -18,7 +17,8 @@ public class ColorZone : MonoBehaviour
     private Color mLastColorSeen = Color.green;
 
     public Color[] mColors = new Color[3] { Color.blue, Color.white, Color.red};
-    public int mColorToCompareIndex = 0;
+    private int mColorToCompareIndex = 0;
+    public UnityEvent OpenDoorEvent;
 
     private void Start()
     {
@@ -60,7 +60,10 @@ public class ColorZone : MonoBehaviour
         {
             mZoneActivated = true;
 
-            // TODO Open door
+            if (OpenDoorEvent != null)
+            {
+                OpenDoorEvent.Invoke();
+            }
         }
     }
 
@@ -70,7 +73,6 @@ public class ColorZone : MonoBehaviour
         if 
             (pOther.gameObject.CompareTag ("Player"))
         {
-            Debug.Log("Watch move");
             mWatchLightColor = true;
         }
     }
@@ -82,7 +84,6 @@ public class ColorZone : MonoBehaviour
             (pOther.gameObject.CompareTag ("Player"))
         {
             mWatchLightColor = false;
-            Debug.Log("Unwatch move");
         }
     }
            

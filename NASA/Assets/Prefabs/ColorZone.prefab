@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8192748619935996286}
   - component: {fileID: 8192748619935996287}
   - component: {fileID: 8192748619935996284}
-  - component: {fileID: 8192748619935996256}
+  - component: {fileID: 6982332037710834480}
   m_Layer: 0
   m_Name: ColorZone
   m_TagString: ColorZone
@@ -94,7 +94,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &8192748619935996256
+--- !u!114 &6982332037710834480
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,7 +108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorZoneTag: ColorZone
   mLight: {fileID: 0}
-  gameEngine: {fileID: 0}
   mPlanes:
   - {fileID: 0}
   - {fileID: 0}
@@ -117,4 +116,6 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
-  mColorToCompareIndex: 3
+  OpenDoorEvent:
+    m_PersistentCalls:
+      m_Calls: []

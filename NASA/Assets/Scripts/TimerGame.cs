@@ -17,6 +17,7 @@ public class TimerGame : MonoBehaviour
     public GameObject player;
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     Mouse_Behaviour PlayerMouse_Behaviour;
+    Audio_Behaviour PlayAudio_Behaviour;
     bool started = false;
     bool firstDeath = true;
     public Camera cameraFollow;
@@ -28,6 +29,7 @@ public class TimerGame : MonoBehaviour
         playerRigidbody = player.GetComponent<Rigidbody>();
         initialPos = playerRigidbody.position;
         PlayerMouse_Behaviour = player.GetComponent<Mouse_Behaviour>();
+        PlayAudio_Behaviour = player.GetComponent<Audio_Behaviour>();
     }
 
     public void StartTimer()
@@ -66,7 +68,8 @@ public class TimerGame : MonoBehaviour
                 Camera.main.gameObject.SetActive(false);
                 cameraFollow.gameObject.SetActive(true);
                 firstDeath = false;
-            }          
+            }  
+            PlayAudio_Behaviour.timerOut = true;        
         }  
          if
             (CurrentTime <= 0 && CurrentBreakTime > 0)
