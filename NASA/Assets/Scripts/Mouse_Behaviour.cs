@@ -9,19 +9,21 @@ public class Mouse_Behaviour : MonoBehaviour
     Vector3 movement;                   // The vector to store the direction of the player's movement.                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
 
+    public bool canMove = true;
+
     void Start()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = GetComponent<Rigidbody>();
     }
 
-    protected void FixedUpdate ()
+    void Update()
     {
         // Store the input axes.
         float h = Input.GetAxisRaw("Vertical");
         
         if 
-            (h !=0)
+            (h !=0 && canMove)
         {
             // Move the player around the scene.
             Move (h);
@@ -39,6 +41,5 @@ public class Mouse_Behaviour : MonoBehaviour
 
         // Move the player to it's current position plus the movement.
         playerRigidbody.MovePosition (transform.position + movement);
-
     }
 }

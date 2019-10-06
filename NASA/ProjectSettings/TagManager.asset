@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Picked
   - Pick Up
+  - Door
+  - Door Opened
   layers:
   - Default
   - TransparentFX
