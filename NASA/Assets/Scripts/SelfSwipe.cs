@@ -19,7 +19,7 @@ public class SelfSwipe : MonoBehaviour {
         transform.Rotate (move * Time.deltaTime);
         Vector3 angles = transform.eulerAngles;
         float product = angles.z*RotationAxis.z+angles.x*RotationAxis.x+angles.y*RotationAxis.y;
-        print("product :"+product);
+        //print("product :"+product);
         if (product >maxValue|| product < minValue)
         {
             way *= -1;
