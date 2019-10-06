@@ -1098,12 +1098,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: -3541596549365640876, guid: c9ae18331cf9e87459165679d96e9686,
+    - target: {fileID: -1170926224595886150, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: -1170926224595886150, guid: c9ae18331cf9e87459165679d96e9686,
+    - target: {fileID: -3541596549365640876, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
       value: Ground
@@ -1113,7 +1113,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 3673002997041546293, guid: c9ae18331cf9e87459165679d96e9686,
+    - target: {fileID: 7394083982411414941, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
       value: Ground
@@ -1123,12 +1123,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 7394083982411414941, guid: c9ae18331cf9e87459165679d96e9686,
+    - target: {fileID: 8860952572051987866, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 8860952572051987866, guid: c9ae18331cf9e87459165679d96e9686,
+    - target: {fileID: 3673002997041546293, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
       value: Ground
@@ -1270,6 +1270,7 @@ MonoBehaviour:
   RelatedPart: {fileID: 3815906325796984044}
   sideAxis: {x: 0, y: 1, z: 0}
   rotateSpeed: 200
+  canRotate: 0
 --- !u!114 &683816738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4630,7 +4631,37 @@ PrefabInstance:
     - target: {fileID: 1931727136707423318, guid: 21b77cdad9fc115409a43e3955d57a8c,
         type: 3}
       propertyPath: journeyTime
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931727136707423318, guid: 21b77cdad9fc115409a43e3955d57a8c,
+        type: 3}
+      propertyPath: tilt
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931727136707423318, guid: 21b77cdad9fc115409a43e3955d57a8c,
+        type: 3}
+      propertyPath: Queue
+      value: 
+      objectReference: {fileID: 683816732}
+    - target: {fileID: 6491097361550432814, guid: 21b77cdad9fc115409a43e3955d57a8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6491097361550432814, guid: 21b77cdad9fc115409a43e3955d57a8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031037284611776785, guid: 21b77cdad9fc115409a43e3955d57a8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031037284611776785, guid: 21b77cdad9fc115409a43e3955d57a8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4608717051524526902, guid: 21b77cdad9fc115409a43e3955d57a8c,
         type: 3}

@@ -83,6 +83,9 @@ crashlytics-build.properties
 *.blend1
 *.blend2
 *.blend3
+*.blend1.meta
+*.blend2.meta
+*.blend3.meta
 
 © 2019 GitHub, Inc.
 Terms

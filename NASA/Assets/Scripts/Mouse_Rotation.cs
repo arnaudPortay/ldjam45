@@ -12,6 +12,8 @@ public class Mouse_Rotation : Ability
 
     Quaternion baseRotation;
 
+    public bool canRotate = true;
+
      new protected void InitAbility ()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
@@ -41,7 +43,7 @@ public class Mouse_Rotation : Ability
         {
             InitAbility();
         }
-        if (h!= 0)
+        if (h!= 0 && canRotate)
         {
              Vector3 move = sideAxis*h;
             // Set the movement vector based on the axis input.

@@ -11,6 +11,7 @@ public class SelfSwipe : MonoBehaviour {
     public float maxValue = 145;
     public Vector3 RotationAxis = new Vector3(0,1,0);
     public float way = 1.0f;
+    bool changed = false;
     void Update () 
     {
         // TODO : desactivate when the object is picked up
@@ -22,7 +23,13 @@ public class SelfSwipe : MonoBehaviour {
         //print("product :"+product);
         if (product >maxValue|| product < minValue)
         {
-            way *= -1;
+            changed = true;
+            way *= -4;
+        }
+        else if (changed)
+        {
+            way /=4;
+            changed=false;
         }
     }
 }
