@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.Events;
 
 /**
  * Used to collect ability items and activate them.
@@ -8,6 +9,7 @@ using System;
 
 public class CollectItem : MonoBehaviour {
 
+    public UnityEvent EndGameEvent;
 
     void Start ()
     {
@@ -32,6 +34,13 @@ public class CollectItem : MonoBehaviour {
                 (lAbilityObject != null)
             {
                 lAbilityObject.setSubject(gameObject);
+            }
+        }
+        else if (pOther.gameObject.CompareTag("endZone")) 
+        {
+            if (EndGameEvent != null)
+            {
+                EndGameEvent.Invoke();
             }
         }
     }
