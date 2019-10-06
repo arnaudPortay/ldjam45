@@ -2,7 +2,13 @@ fileFormatVersion: 2
 guid: 925152814cc50344699a9d0c4f8c36c3
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 506283264502061602
+    second: Cylinder|GoFront
+  - first:
+      74: 8242925313887182361
+    second: Camera|GoFront
   externalObjects: {}
   materials:
     importMaterials: 1
