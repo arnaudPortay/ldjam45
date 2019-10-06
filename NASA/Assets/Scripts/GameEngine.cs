@@ -24,7 +24,7 @@ public class GameEngine : MonoBehaviour
     {
         if (player)
         {
-            player.SetActive(false);
+            player.GetComponent<Mouse_Behaviour>().enabled = false;
         }
 
         cameraEffect = Camera.main.GetComponent<CameraEffect>();
@@ -41,9 +41,10 @@ public class GameEngine : MonoBehaviour
     {
         if (player)
         {
-            player.SetActive(true);
+            player.GetComponent<Mouse_Behaviour>().enabled = true;
             isInit = true;
         }
+        GetComponent<TimerGame>().StartTimer();
     }
 
     public void endGame()
@@ -52,7 +53,7 @@ public class GameEngine : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void FixedUpdate()
     {
         if (!bootScreen.activeSelf && !isInit)
         {

@@ -9,8 +9,9 @@ using UnityEngine.Events;
 
 public class CollectItem : MonoBehaviour {
 
+    public GameObject GameEngine;
     public UnityEvent EndGameEvent;
-
+    public float AdditionnalTime = 5.0f;
     void Start ()
     {
     }
@@ -34,6 +35,10 @@ public class CollectItem : MonoBehaviour {
                 (lAbilityObject != null)
             {
                 lAbilityObject.setSubject(gameObject);
+            }
+            if (GameEngine)
+            {
+                GameEngine.GetComponent<TimerGame>().addTime(AdditionnalTime);
             }
         }
         else if (pOther.gameObject.CompareTag("endZone")) 

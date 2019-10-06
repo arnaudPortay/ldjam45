@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TimerGame : MonoBehaviour
 {
     
-    float temps = 5;
-    float temps2 = 0;
-    public Text timertext;
-    public int tempsint = 10;
-    public int tempsint2 = 2;
+    public float CurrentTime = 5;
+    float CurrentBreakTime = 0;
+    public TextMeshProUGUI timertext;
+
+    public Vector3 initialPos;
+    public float StartTIme = 10;
+    public float BreakTime = 2;
     public GameObject player;
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     Mouse_Behaviour PlayerMouse_Behaviour;
+    bool started = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,34 +27,50 @@ public class TimerGame : MonoBehaviour
         PlayerMouse_Behaviour = player.GetComponent<Mouse_Behaviour>();
     }
 
+    public void StartTimer()
+    {
+        started = true;
+    }
+
+    public void addTime(float additionnal)
+    {
+        CurrentTime+=additionnal;
+        StartTIme += additionnal;
+    }
+
     protected void FixedUpdate ()
     {
-        if
-            (temps > 0)
+        timertext.text = "Time Left : "+CurrentTime;
+        if (!started)
         {
-            // Play part
-            temps -= Time.fixedDeltaTime;
+            return;
         }
         if
-            (temps <= 0 && temps2 <= 0)
+            (CurrentTime > 0)
+        {
+            // Play part
+            CurrentTime -= Time.fixedDeltaTime;
+        }
+        if
+            (CurrentTime <= 0 && CurrentBreakTime <= 0)
         {
             // Play part is finished, we go back to the beginning
-            temps2 = tempsint2;           
+            CurrentBreakTime = BreakTime;           
             PlayerMouse_Behaviour.canMove = false;
-            playerRigidbody.position = new Vector3(0, 1, 0);              
+            playerRigidbody.position = initialPos;              
         }  
          if
-            (temps <= 0 && temps2 > 0)
+            (CurrentTime <= 0 && CurrentBreakTime > 0)
         {
             // Break party during tempsint2 seconds. we can't move
-            temps2 -= Time.fixedDeltaTime;
+            CurrentBreakTime -= Time.fixedDeltaTime;
            
-            if (temps2 <= 0)
+            if (CurrentBreakTime <= 0)
             {
                 // The break part is finished, we can play
                 PlayerMouse_Behaviour.canMove = true;
-                temps = tempsint;
-                temps2 = 0;
+                CurrentTime = StartTIme;
+                CurrentBreakTime = 0;
             }
         }  
     }
