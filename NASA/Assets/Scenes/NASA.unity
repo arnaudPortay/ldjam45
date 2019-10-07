@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 84dec8f9e78ae5d4bb9dde316ff19f2c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -2671,6 +2671,8 @@ MonoBehaviour:
   player: {fileID: 4642956849499231211}
   cameraFollow: {fileID: 7805681846063226046}
   timerSlider: {fileID: 1107316915}
+  Key: {fileID: 2067676554}
+  breakTimeModifier: 5
 --- !u!82 &1950806583 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5155720522936034339, guid: d6a1f11029a04ec4581aa1d102a983b1,
@@ -2942,6 +2944,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052006999}
   m_CullTransparentMesh: 0
+--- !u!1 &2067676554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5882172343894842195, guid: 21b77cdad9fc115409a43e3955d57a8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9181482498801511447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2080596214
 GameObject:
   m_ObjectHideFlags: 0
