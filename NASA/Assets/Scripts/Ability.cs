@@ -43,7 +43,7 @@ public class Ability : MonoBehaviour
 
     virtual protected void DisplayText ()
     {
-        Debug.Log("Display text ask");
+        //Debug.Log("Display text ask");
         if (!mText)
         {
             mText = GameObject.Find("AbilityText");
@@ -51,7 +51,7 @@ public class Ability : MonoBehaviour
 
         if (mText)
         {
-            Debug.Log("Display text ok");
+            //Debug.Log("Display text ok");
             mText.GetComponent<PickUpTextDisplay>().SetText(GetPickUpText(), GetPresentationText());
         }
         

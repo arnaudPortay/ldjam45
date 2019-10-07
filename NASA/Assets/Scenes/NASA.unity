@@ -1926,7 +1926,7 @@ MonoBehaviour:
   RelatedPart: {fileID: 3815906325796984044}
   mText: {fileID: 0}
   sideAxis: {x: 0, y: 1, z: 0}
-  rotateSpeed: 200
+  rotateSpeed: 150
   canRotate: 1
 --- !u!114 &683816738
 MonoBehaviour:
@@ -6105,6 +6105,21 @@ PrefabInstance:
       propertyPath: Audio_Item
       value: 
       objectReference: {fileID: 455156767}
+    - target: {fileID: 4431235486865385352, guid: 21b77cdad9fc115409a43e3955d57a8c,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431235486865385352, guid: 21b77cdad9fc115409a43e3955d57a8c,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431235486865385352, guid: 21b77cdad9fc115409a43e3955d57a8c,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c41c51ad3962b2c4ab459844fe6a3b2e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21b77cdad9fc115409a43e3955d57a8c, type: 3}
 --- !u!1 &9181482498801511448 stripped
