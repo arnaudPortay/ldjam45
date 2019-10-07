@@ -80,4 +80,24 @@ public class Flashlight : Ability
             timerstarted = true;
         }
     }
+
+    virtual public string GetPickUpText()
+    {
+        return "You picked a nose !"
+    }
+
+    virtual public string GetPresentationText()
+    {
+        return "You have new the possibilty to illuminate your world with [R]. If you want some color in your life, press [F]."
+    }
+
+    virtual public string GetAbilityName()
+    {
+        return "Flashlight/Color";
+    }
+
+    virtual public string GetAbilityKey()
+    {
+        return "[R]/[F]";
+    }
 }

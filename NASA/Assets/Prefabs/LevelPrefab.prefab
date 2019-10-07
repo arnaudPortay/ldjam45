@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxDuration: 3
-  LockKey: nasa
+  LockKey: bill
   Doors: {fileID: 0}
 --- !u!1 &769492095549600392
 GameObject:

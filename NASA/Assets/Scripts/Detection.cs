@@ -11,6 +11,7 @@ public class Detection : Ability
     public bool blinking = false;
     public Color target = Color.red;
     Color currentcolor;
+    public GameObject minimap;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class Detection : Ability
         blinking = true;
         currentcolor = DoorRenderer.material.color;
         RevealedDoor.GetComponent<MeshCollider>().enabled = false;
+        minimap.SetActive(true);
     }
 
     protected void FixedUpdate ()
@@ -36,5 +38,15 @@ public class Detection : Ability
 
     }
 
+    
+    virtual public string GetPickUpText()
+    {
+        return "You picked up moustaches !"
+    }
+
+    virtual public string GetPresentationText()
+    {
+        return "Those incredible moustaches give you the power of detection and reveal the minimap. ";
+    }
 
 }

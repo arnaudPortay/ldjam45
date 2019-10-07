@@ -41,4 +41,16 @@ public class Ability : MonoBehaviour
     {
         //print(" triggered ability ");
     }
+
+    virtual public string GetPickUpText()
+    {}
+
+    virtual public string GetPresentationText()
+    {}
+
+    virtual public string GetAbilityName()
+    {}
+
+    virtual public string GetAbilityKey()
+    {}
 }
