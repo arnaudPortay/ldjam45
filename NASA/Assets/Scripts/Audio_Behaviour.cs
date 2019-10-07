@@ -10,6 +10,8 @@ public class Audio_Behaviour : MonoBehaviour
     public AudioSource Audio_Toucher;      
     public AudioSource Audio_Motrice;
     public AudioSource Audio_Audition_Sentiments;
+    public AudioSource Audio_Item;
+    public AudioClip impact;
     private bool exit = false;
     public bool timerOut = false;
 
@@ -17,6 +19,14 @@ public class Audio_Behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Audio_Vision.Play();
+        Audio_Toucher.Play();      
+        Audio_Motrice.Play();
+        Audio_Audition_Sentiments.Play();
+        Audio_Vision.Pause();
+        Audio_Toucher.Pause();      
+        Audio_Motrice.Pause();
+        Audio_Audition_Sentiments.Pause();
         Audio_MainMenu.Play();
     }
 
@@ -25,10 +35,10 @@ public class Audio_Behaviour : MonoBehaviour
     {
         if (timerOut)
         {
-            Audio_Vision.Stop();
-            Audio_Toucher.Stop();      
-            Audio_Motrice.Stop();
-            Audio_Audition_Sentiments.Stop();
+            Audio_Vision.Pause();
+            Audio_Toucher.Pause();      
+            Audio_Motrice.Pause();
+            Audio_Audition_Sentiments.Pause();
             Audio_MainMenu.Play();
             timerOut = false;
         }
@@ -45,10 +55,10 @@ public class Audio_Behaviour : MonoBehaviour
             (other.gameObject.CompareTag ("Musique") && exit)
         {
 
-            Audio_Vision.Stop();
-            Audio_Toucher.Stop();      
-            Audio_Motrice.Stop();
-            Audio_Audition_Sentiments.Stop();
+            Audio_Vision.Pause();
+            Audio_Toucher.Pause();      
+            Audio_Motrice.Pause();
+            Audio_Audition_Sentiments.Pause();
 
             switch (other.gameObject.name)
             {
@@ -77,7 +87,7 @@ public class Audio_Behaviour : MonoBehaviour
 
             if (Audio_MainMenu.isPlaying)
             {
-                Audio_MainMenu.Stop();
+                Audio_MainMenu.Pause();
                 mAudioSource.Play();
             }
             else
@@ -87,4 +97,9 @@ public class Audio_Behaviour : MonoBehaviour
             exit = false;
         }
     }
+
+    public void itemSound()
+    {
+        Audio_Item.PlayOneShot(impact, 1F);
+    } 
 }

@@ -29,6 +29,7 @@ public class CollectItem : MonoBehaviour {
 
     RigidbodyConstraints oldConstraints;
 	int index;
+    Audio_Behaviour PlayAudio_Behaviour;
 
     bool timerstarted;
 
@@ -55,6 +56,7 @@ public class CollectItem : MonoBehaviour {
     {
         index = 0;
 		targetPoint = pathParent.GetChild (index);
+        PlayAudio_Behaviour = GetComponent<Audio_Behaviour>();
     }
 
     void FixedUpdate ()
@@ -160,6 +162,7 @@ public class CollectItem : MonoBehaviour {
             {
                 setTurning(true);
             }
+            PlayAudio_Behaviour.itemSound();
         }
         else if (pOther.gameObject.CompareTag("endZone")) 
         {
