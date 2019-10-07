@@ -27,6 +27,7 @@ public class TimerGame : MonoBehaviour
     private Image fillImage;
 
     public GameObject Key;
+    public GameObject endGame;
     SelfRotation_Key sk;
     public float breakTimeModifier = 5.0f;
 
@@ -106,7 +107,7 @@ public class TimerGame : MonoBehaviour
                     FallCase = true;
                 }
                 // new death
-                PlayerMouse_Behaviour.deathCounter++;
+                endGame.GetComponent<EndTextDisplay>().mDeathCounter++;
                 // Play part is finished, we go back to the beginning
                 CurrentBreakTime = BreakTime;           
                 //PlayerMouse_Behaviour.canMove = false;

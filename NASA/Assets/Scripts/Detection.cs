@@ -38,6 +38,7 @@ public class Detection : Ability
             currentcolor.a = newVisibility;
             float lerp = Mathf.PingPong(Time.fixedTime, duration) / duration;
             DoorRenderer.material.color = Color.Lerp(currentcolor, target, lerp);
+
        } 
 
     }

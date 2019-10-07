@@ -8,18 +8,19 @@ public class EndTextDisplay : MonoBehaviour
     public bool mIsDisplayed;
     // Start is called before the first frame update
     public int mDeathCounter = 0;
+    public GameObject SpriteEnd;
+    public float timebeforejump = 5;
+    public bool timerstarted = false;
 
-    public TextMeshProUGUI mGameObject;
-
-    void DisplayText()
+    public void DisplayText()
     {
-        mGameObject.text = "Congratulations ! \nYou won the game in " + mDeathCounter + " generations.";
-        mGameObject.enabled = true;
+        GetComponent<TextMeshProUGUI>().enabled = false;
+        timerstarted = true;
     }
 
     void HideText()
     {
-        mGameObject.enabled = false;
+        GetComponent<TextMeshProUGUI>().enabled = false;
     }
 
     void Start ()
@@ -28,5 +29,21 @@ public class EndTextDisplay : MonoBehaviour
 
     void FixedUpdate ()
     {
+        if (!timerstarted)
+        {
+            return;
+        }
+        if (timebeforejump < 0)
+        {
+            SpriteEnd.SetActive(true);
+            GetComponent<TextMeshProUGUI>().text = "Congratulations ! \nYou won the game in " + mDeathCounter + " generations.";
+            GetComponent<TextMeshProUGUI>().enabled = true;
+            timerstarted = false;
+        }
+        else
+        {
+            timebeforejump -= Time.fixedDeltaTime;
+        }
+        
     }
 }
