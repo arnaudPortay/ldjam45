@@ -10,6 +10,7 @@ public class Mouse_Behaviour : MonoBehaviour
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     public bool canMove = true;
     RigidbodyConstraints oldConstraints;
+    public bool mDoor5AlwaysOpen = false;
 
     public Vector3 initialPos;
     public Quaternion initialRot;
@@ -64,14 +65,22 @@ public class Mouse_Behaviour : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other) 
+     void OnTriggerEnter(Collider pOther) 
     {
+        if 
+            (pOther.gameObject.CompareTag ("Musique"))
+        {
+            if (pOther.gameObject.name == "Zone 5 Sentiments")
+            {
+                mDoor5AlwaysOpen = true;
+            }
+        }
 
         if 
-            (other.gameObject.CompareTag ("CheckPoint"))
+            (pOther.gameObject.CompareTag ("CheckPoint"))
         {
             print("New CHeckpoint reached !");
-            initialPos = other.gameObject.transform.position;
+            initialPos = pOther.gameObject.transform.position;
             initialRot = transform.rotation;
         }
     }
