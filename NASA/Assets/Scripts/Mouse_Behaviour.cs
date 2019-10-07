@@ -10,6 +10,7 @@ public class Mouse_Behaviour : MonoBehaviour
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     public bool canMove = true;
     RigidbodyConstraints oldConstraints;
+    public bool mDoor5AlwaysOpen = false;
 
     void Start()
     {
@@ -56,6 +57,18 @@ public class Mouse_Behaviour : MonoBehaviour
         else
         {
             rb.constraints = oldConstraints;
+        }
+    }
+
+     void OnTriggerEnter(Collider pOther) 
+    {
+        if 
+            (pOther.gameObject.CompareTag ("Musique"))
+        {
+            if (pOther.gameObject.name == "Zone 5 Sentiments")
+            {
+                mDoor5AlwaysOpen = true;
+            }
         }
     }
 }
