@@ -15,32 +15,42 @@ public class Audio_Behaviour : MonoBehaviour
     private bool exit = false;
     public bool timerOut = false;
 
+    public float lowered = 0.5f;
+    public float mainVolume =1.0f;
+    float wait =0;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Audio_Vision.Play();
-        Audio_Toucher.Play();      
-        Audio_Motrice.Play();
-        Audio_Audition_Sentiments.Play();
-        Audio_Vision.Pause();
-        Audio_Toucher.Pause();      
-        Audio_Motrice.Pause();
-        Audio_Audition_Sentiments.Pause();
+        mAudioSource = Audio_MainMenu;
         Audio_MainMenu.Play();
+        Audio_MainMenu.Pause();
+        Audio_Vision.Play();
+        Audio_Vision.Pause();
+        Audio_Toucher.Play();
+        Audio_Toucher.Pause();
+        Audio_Motrice.Play();
+        Audio_Motrice.Pause();
+        Audio_Audition_Sentiments.Play();
+        Audio_Audition_Sentiments.Pause();
+    }
+    void startMusique()
+    {
+        mAudioSource.UnPause();
+    }
+
+    void stopMusique() 
+    {
+        mAudioSource.Pause();
     }
 
     // Update is called once per frame
-    void Update()
+    protected void  FixedUpdate()
     {
-        if (timerOut)
+        if (wait >0)
         {
-            Audio_Vision.Pause();
-            Audio_Toucher.Pause();      
-            Audio_Motrice.Pause();
-            Audio_Audition_Sentiments.Pause();
-            Audio_MainMenu.Play();
-            timerOut = false;
+            wait -= Time.fixedDeltaTime;
         }
     }
 
@@ -55,11 +65,7 @@ public class Audio_Behaviour : MonoBehaviour
             (other.gameObject.CompareTag ("Musique") && exit)
         {
 
-            Audio_Vision.Pause();
-            Audio_Toucher.Pause();      
-            Audio_Motrice.Pause();
-            Audio_Audition_Sentiments.Pause();
-
+            mAudioSource.Pause();
             switch (other.gameObject.name)
             {
                 case "Zone 1 Cervelet":               
@@ -80,26 +86,21 @@ public class Audio_Behaviour : MonoBehaviour
                 case "Zone 6 Audition":
                     mAudioSource = Audio_Audition_Sentiments;
                 break;
-            default:
+                default:
                     mAudioSource = Audio_MainMenu;
                 break;
             }
+            mAudioSource.volume = mainVolume;
+            mAudioSource.UnPause();
 
-            if (Audio_MainMenu.isPlaying)
-            {
-                Audio_MainMenu.Pause();
-                mAudioSource.Play();
-            }
-            else
-            {                
-                Audio_MainMenu.Play();
-            }
             exit = false;
         }
     }
 
     public void itemSound()
     {
-        Audio_Item.PlayOneShot(impact, 1F);
+        mAudioSource.volume = lowered*mainVolume;
+        Audio_Item.PlayOneShot(impact, mainVolume);
+        wait = impact.length;
     } 
 }
