@@ -83,12 +83,12 @@ public class Flashlight : Ability
 
     virtual public string GetPickUpText()
     {
-        return "You picked a nose !"
+        return "You picked a nose !";
     }
 
     virtual public string GetPresentationText()
     {
-        return "You have new the possibilty to illuminate your world with [R]. If you want some color in your life, press [F]."
+        return "You have new the possibilty to illuminate your world with [R]. If you want some color in your life, press [F].";
     }
 
     virtual public string GetAbilityName()

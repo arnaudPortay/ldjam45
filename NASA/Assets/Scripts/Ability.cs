@@ -43,14 +43,22 @@ public class Ability : MonoBehaviour
     }
 
     virtual public string GetPickUpText()
-    {}
+    {
+        return "";
+    }
 
     virtual public string GetPresentationText()
-    {}
+    {
+        return "";
+    }
 
     virtual public string GetAbilityName()
-    {}
+    {
+        return "";
+    }
 
     virtual public string GetAbilityKey()
-    {}
+    {
+        return "";
+    }
 }

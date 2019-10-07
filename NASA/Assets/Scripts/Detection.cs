@@ -41,7 +41,7 @@ public class Detection : Ability
     
     virtual public string GetPickUpText()
     {
-        return "You picked up moustaches !"
+        return "You picked up moustaches !";
     }
 
     virtual public string GetPresentationText()
