@@ -105,6 +105,8 @@ public class TimerGame : MonoBehaviour
                 {
                     FallCase = true;
                 }
+                // new death
+                PlayerMouse_Behaviour.deathCounter++;
                 // Play part is finished, we go back to the beginning
                 CurrentBreakTime = BreakTime;           
                 //PlayerMouse_Behaviour.canMove = false;

@@ -42,9 +42,11 @@ public class GameEngine : MonoBehaviour
         if (player)
         {
             player.GetComponent<Mouse_Behaviour>().enabled = true;
+            player.GetComponent<Audio_Behaviour>().startMusique();
             isInit = true;
         }
         GetComponent<TimerGame>().StartTimer();
+        
     }
 
     public void endGame()
