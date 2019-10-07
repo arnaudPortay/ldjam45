@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Audio_Behaviour : MonoBehaviour
 {
-    private AudioSource mAudioSource;
+    public AudioSource mAudioSource;
     public AudioSource Audio_MainMenu;
     public AudioSource Audio_Vision;   
     public AudioSource Audio_Toucher;      
@@ -34,15 +34,24 @@ public class Audio_Behaviour : MonoBehaviour
         Audio_Motrice.Pause();
         Audio_Audition_Sentiments.Play();
         Audio_Audition_Sentiments.Pause();
+        Audio_Item.Pause();
+
+        startMusique();
     }
-    void startMusique()
+    public void startMusique()
     {
-        mAudioSource.UnPause();
+        mAudioSource.Play();
     }
 
-    void stopMusique() 
+    public void stopMusique() 
     {
         mAudioSource.Pause();
+    }
+    public void resetMusique(AudioSource source)
+    {
+        mAudioSource.Pause();
+        mAudioSource = source;
+        mAudioSource.UnPause();
     }
 
     // Update is called once per frame
@@ -51,7 +60,12 @@ public class Audio_Behaviour : MonoBehaviour
         if (wait >0)
         {
             wait -= Time.fixedDeltaTime;
+            if (wait <= 0)
+            {
+                mAudioSource.volume = mainVolume;
+            }
         }
+
     }
 
     void OnTriggerExit(Collider other)
@@ -66,6 +80,8 @@ public class Audio_Behaviour : MonoBehaviour
         {
 
             mAudioSource.Pause();
+            bool swapOther =mAudioSource == Audio_MainMenu;
+            
             switch (other.gameObject.name)
             {
                 case "Zone 1 Cervelet":               
@@ -89,6 +105,10 @@ public class Audio_Behaviour : MonoBehaviour
                 default:
                     mAudioSource = Audio_MainMenu;
                 break;
+            }
+            if (!swapOther)
+            {
+                mAudioSource = Audio_MainMenu;
             }
             mAudioSource.volume = mainVolume;
             mAudioSource.UnPause();

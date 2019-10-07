@@ -789,8 +789,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1384988723494418328}
   - component: {fileID: 1384988723494418331}
-  - component: {fileID: 1384988723494418330}
   - component: {fileID: 1384988723494418329}
+  - component: {fileID: 1076527351576203214}
   m_Layer: 0
   m_Name: FirstCamera
   m_TagString: MainCamera
@@ -855,14 +855,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1384988723494418330
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384988723494418335}
-  m_Enabled: 1
 --- !u!114 &1384988723494418329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,6 +868,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   postprocessMaterial: {fileID: 2100000, guid: 7bae9973e79c15747b16679f8ad3e9d1, type: 2}
+--- !u!81 &1076527351576203214
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384988723494418335}
+  m_Enabled: 1
 --- !u!1 &1454532720439716848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,6 +2225,7 @@ MonoBehaviour:
   frontAxis: {x: 0, y: 0, z: 1}
   canMove: 1
   mDoor5AlwaysOpen: 0
+  resetAudio: {fileID: 0}
   initialPos: {x: 0, y: 0, z: 0}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1931727136707423318

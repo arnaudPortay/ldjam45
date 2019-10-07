@@ -11,7 +11,7 @@ public class Mouse_Behaviour : MonoBehaviour
     public bool canMove = true;
     RigidbodyConstraints oldConstraints;
     public bool mDoor5AlwaysOpen = false;
-
+    public AudioSource resetAudio;
     public Vector3 initialPos;
     public Quaternion initialRot;
 
@@ -21,6 +21,7 @@ public class Mouse_Behaviour : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         initialPos = transform.position;
         initialRot = transform.rotation;
+        resetAudio = GameObject.FindGameObjectWithTag("Main Audio").GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -81,6 +82,7 @@ public class Mouse_Behaviour : MonoBehaviour
         {
             //print("New CHeckpoint reached !");
             initialPos = pOther.gameObject.transform.position;
+            resetAudio = pOther.gameObject.GetComponent<Checkpoint>().resetAudio;
             initialRot = transform.rotation;
         }
     }
