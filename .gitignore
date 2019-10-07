@@ -101,3 +101,7 @@ Blog
 About
 NASA/BuildWebGL/
 NASA/BuildWebGL/*
+NASA/BuildWin64/
+NASA/BuildWin64/*
+NASA/BuildWinx86/
+NASA/BuildWinx86/*
