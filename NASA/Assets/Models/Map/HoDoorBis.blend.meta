@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: 7312d980114af7142b10935bb3837c10
+guid: 7b32f2f049e62b04eaab8be598c1e231
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -9112369781527684547
+    second: DoorContour|DoorOpen
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -87,7 +90,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
