@@ -2038,8 +2038,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4540812634338492412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.67, y: 0, z: 2.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.6739, y: 0.11603, z: 2.5997}
+  m_LocalScale: {x: 0.67172, y: 0.67172, z: 0.67172}
   m_Children:
   - {fileID: 2348059088863606345}
   - {fileID: 520804854934504147}
@@ -2098,10 +2098,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.4706955
+  m_Radius: 0.30575132
   m_Height: 1.2980791
   m_Direction: 2
-  m_Center: {x: 0, y: 0.2706955, z: -0.23295584}
+  m_Center: {x: 0, y: 0.2994209, z: -0.23295587}
 --- !u!65 &7936578528407259105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2113,8 +2113,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.55, y: 0.5920044, z: 1.2708769}
-  m_Center: {x: 0, y: 0.32938743, z: -0.24468061}
+  m_Size: {x: 0.55, y: 0.58995545, z: 1.2708769}
+  m_Center: {x: 0, y: 0.29873055, z: -0.24468064}
 --- !u!114 &2659191671232027321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2129,6 +2129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   frontAxis: {x: 0, y: 0, z: 1}
+  actualPosition: {x: 0, y: 0, z: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
   canMove: 1
 --- !u!114 &1931727136707423318
 MonoBehaviour:
