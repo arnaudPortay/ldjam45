@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2713610876279151445
+--- !u!1 &1686214213494479588
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5213852582731888400}
-  - component: {fileID: 3449305376335798946}
-  - component: {fileID: 8767664595855888565}
+  - component: {fileID: 8833070829180843681}
+  - component: {fileID: 2094288883391652627}
+  - component: {fileID: 5432198964697796868}
+  - component: {fileID: 6952549218396415915}
   m_Layer: 0
   m_Name: DoorContour
   m_TagString: Untagged
@@ -18,35 +19,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5213852582731888400
+--- !u!4 &8833070829180843681
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2713610876279151445}
-  m_LocalRotation: {x: -0.70710677, y: 0, z: -0, w: 0.7071068}
+  m_GameObject: {fileID: 1686214213494479588}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8770103034788743800}
+  m_Father: {fileID: 5439123961422302153}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3449305376335798946
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!33 &2094288883391652627
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2713610876279151445}
+  m_GameObject: {fileID: 1686214213494479588}
   m_Mesh: {fileID: -3957017631395468446, guid: 95e940973878f434089013c7f7306759, type: 3}
---- !u!23 &8767664595855888565
+--- !u!23 &5432198964697796868
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2713610876279151445}
+  m_GameObject: {fileID: 1686214213494479588}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -78,7 +79,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &5759809144496224363
+--- !u!64 &6952549218396415915
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686214213494479588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -3957017631395468446, guid: 5d7a87b3571cc6a4f8d95555fb6cc914, type: 3}
+--- !u!1 &9016487603468417498
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,8 +101,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8770103034788743800}
-  - component: {fileID: 1675244499862562562}
+  - component: {fileID: 5439123961422302153}
+  - component: {fileID: 2734148613250803379}
   m_Layer: 0
   m_Name: HoDoor
   m_TagString: Untagged
@@ -95,29 +110,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8770103034788743800
+--- !u!4 &5439123961422302153
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759809144496224363}
+  m_GameObject: {fileID: 9016487603468417498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5213852582731888400}
+  - {fileID: 8833070829180843681}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1675244499862562562
+--- !u!95 &2734148613250803379
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759809144496224363}
+  m_GameObject: {fileID: 9016487603468417498}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 95e940973878f434089013c7f7306759, type: 3}
   m_Controller: {fileID: 9100000, guid: 77eb39963feab8746a8744c6c5d50f3e, type: 2}

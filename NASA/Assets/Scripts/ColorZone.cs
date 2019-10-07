@@ -12,7 +12,7 @@ public class ColorZone : MonoBehaviour
     public GameObject[] mPlanes = new GameObject[3];
 
     private bool mWatchLightColor = false;
-    private bool mZoneActivated = false; 
+    public bool mZoneActivated = false; 
 
     private Color mLastColorSeen = Color.green;
 
@@ -25,7 +25,7 @@ public class ColorZone : MonoBehaviour
         gameObject.tag = ColorZoneTag;
     }
 
-    private void Update()
+    protected void FixedUpdate()
     {
         if 
             (!mZoneActivated && mWatchLightColor)
@@ -58,7 +58,7 @@ public class ColorZone : MonoBehaviour
         }
 
         if 
-            (/*mColorToCompareIndex >= mColors.Length*/ mColorToCompareIndex == 1)
+            (mColorToCompareIndex >= mColors.Length)
         {
             mZoneActivated = true;
 
