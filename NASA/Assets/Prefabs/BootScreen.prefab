@@ -423,7 +423,58 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "PMAP: PCID enabled\r\nNOTHING Kernel Version 1.0.0: Tue Oct 11 20:56:35
+    PDT 2011; root:xnu-1699.22.73~1/RELEASE_X86_64\r\nvm_page_bootstrap: 987323 free
+    pages and 53061 wired pages\r\nkext submap [0xffffff7f8072e000 - 0xffffff8000000000],
+    kernel text [0xffffff8000200000 - 0xffffff800072e000]\r\nzone leak detection enabled\r\nstandard
+    timeslicing quantum is 10000 us\r\nmig_table_max_displ = 72\r\nTSC Deadline Timer
+    supported and enabled\r\nNOTHINGACPICPU: ProcessorId=1 LocalApicId=0 Enabled\r\nNOTHINGACPICPU:
+    ProcessorId=2 LocalApicId=2 Enabled\r\nNOTHINGACPICPU: ProcessorId=3 LocalApicId=1
+    Enabled\r\nNOTHINGACPICPU: ProcessorId=4 LocalApicId=3 Enabled\r\nNOTHINGACPICPU:
+    ProcessorId=5 LocalApicId=255 Disabled\r\nNOTHINGACPICPU: ProcessorId=6 LocalApicId=255
+    Disabled\r\nNOTHINGACPICPU: ProcessorId=7 LocalApicId=255 Disabled\r\nNOTHINGACPICPU:
+    ProcessorId=8 LocalApicId=255 Disabled\r\ncalling mpo_policy_init for TMSafetyNet\r\nSecurity
+    policy loaded: Safety net for Rollback (TMSafetyNet)\r\ncalling mpo_policy_init
+    for Sandbox\r\nSecurity policy loaded: Seatbelt sandbox policy (Sandbox)\r\ncalling
+    mpo_policy_init for Quarantine\r\nSecurity policy loaded: Quarantine policy (Quarantine)\r\nCopyright
+    (c) 1982, 1986, 1989, 1991, 1993, 2015\r\nThe Regents of the University of Adelaide.
+    All rights reserved.\r\n \r\nHN_ Framework successfully initialized\r\nusing 16384
+    buffer headers and 10240 cluster IO buffer headers\r\nIOAPIC: Version 0x20 Vectors
+    64:87\r\nACPI: System State [S0 S3 S4 S5] (S3)\r\nPFM64 0xf10000000, 0xf0000000\r\n[
+    PCI configuration begin ]\r\nNOTHINGIntelCPUPowerManagement: Turbo Ratios 0046\r\nNOTHINGIntelCPUPowerManagement:
+    (built 13:08:12 Jun 18 2011) initialization complete\r\nconsole relocated to 0xf10000000\r\nPCI
+    configuration changed (bridge=16 device=4 cardbus=0)\r\n[ PCI configuration end,
+    bridges 12 devices 16 ]\r\nmbinit: done [64 MB total pool size, (42/21) split]\r\nPthread
+    support ABORTS when sync kernel primitives misused\r\ncom.NOTHING.NOTHINGFSCompressionTypeZlib
+    kmod start\r\ncom.NOTHING.NOTHINGTrololoBootScreen kmod start\r\ncom.NOTHING.NOTHINGFSCompressionTypeZlib
+    load succeeded\r\ncom.NOTHING.NOTHINGFSCompressionTypeDataless load succeeded\r\n
+    \r\nNOTHINGIntelCPUPowerManagementClient: ready\r\nBTCOEXIST off \r\nwl0: Broadcom
+    BCM4331 802.11 Wireless Controller\r\n5.100.98.75\r\n \r\nFireWire (OHCI) Lucent
+    ID 5901 built-in now active, GUID c82a14fffee4a086; max speed s800.\r\nrooting
+    via boot-uuid from /chosen: F5670083-AC74-33D3-8361-AC1977EE4AA2\r\nWaiting on
+    <dict ID=\"0\"><key>IOProviderClass</key><string ID=\"1\">\r\nIOResources</string><key>IOResourceMatch</key><string
+    ID=\"2\">boot-uuid-media</string></dict>\r\nGot boot device = IOService:/NOTHINGACPIPlatformExpert/PCI0@0/NOTHINGACPIPCI/SATA@1F,2/\r\nNOTHINGIntelPchSeriesAHCI/PRT0@0/IOAHCIDevice@0/NOTHINGAHCIDiskDriver/\r\nNOTHING
+    SSD TS128C Media/IOGUIDPartitionScheme/Customer@2\r\nBSD root: disk0s2, major
+    14, minor 2\r\nKernel is LP64\r\nIOThunderboltSwitch::i2cWriteDWord - status =
+    0xe00002ed\r\nIOThunderboltSwitch::i2cWriteDWord - status = 0x00000000\r\nIOThunderboltSwitch::i2cWriteDWord
+    - status = 0xe00002ed\r\nIOThunderboltSwitch::i2cWriteDWord - status = 0xe00002ed\r\nNOTHINGUSBMultitouchDriver::checkStatus
+    - received Status Packet, Payload 2: device was reinitialized\r\nMottIsAScrub::checkstatus
+    - true, Mott::Scrub\r\n[IOBluetoothHCIController::setConfigState] calling registerService\r\nAirPort_Brcm4331:
+    Ethernet address e4:ce:8f:46:18:d2\r\nIO80211Controller::dataLinkLayerAttachComplete()\r\nIO80211Interface::efiNVRAMPublished():
+    \ \r\nCreated virtif 0xffffff800c32ee00 p2p0\r\nBCM5701Enet: Ethernet address
+    c8:2a:14:57:a4:7a\r\nPrevious Shutdown Cause: 3\r\nNTFS driver 3.8 [Flags: R/W].\r\nNTFS
+    volume name BOOTCAMP, version 3.1.\r\nDSMOS has arrived\r\nen1: 802.11d country
+    code set to 'US'.\r\nen1: Supported channels 1 2 3 4 5 6 7 8 9 10 11 36 40 44
+    48 52 56 60 64 100 104 \r\nm_thebest \r\nMacAuthEvent en1   Auth result for: 00:60:64:1e:e9:e4
+    \ MAC AUTH succeeded\r\nDownloading <color=#FF69B4>Twilight Zone</color>...\r\nMacAuthEvent
+    en1   Auth result for: 00:60:64:1e:e9:e4 Unsolicited  Auth\r\nCollecting <color=green>Mak6</color>
+    cache ...\r\nwlEvent: en1 en1 Link UP\r\nInitializing <color=green>Brainstorm67</color>
+    service...\r\nAirPort: Link Up on en1\r\nTrolling <color=green>Saowll</color>
+    in progress...\r\nen1: BSSID changed to 00:60:64:1e:e9:e4\r\nReticulating <color=green>Morkiche</color>
+    splines...\r\nvirtual bool IOHIDEventSystemUserClient::initWithTask(task*, void*,
+    UInt32):\r\nDeploying <color=green>Daitse</color> agent...\r\nClient task not
+    privileged to open IOHIDSystem for mapping memory (e00002c1)\r\nLoading <color=yellow>Arthur
+    Ewalis</color> audio drivers...\r\n \r\nBoot Complete\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 42b6eae929b660f459443f60de238013, type: 2}
   m_sharedMaterial: {fileID: 8360267048798969503, guid: 42b6eae929b660f459443f60de238013,
@@ -469,7 +520,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 1567
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -493,13 +544,13 @@ MonoBehaviour:
   m_margin: {x: 8, y: 0, z: 12, w: 16}
   m_textInfo:
     textComponent: {fileID: 7878685875214124920}
-    characterCount: 0
+    characterCount: 4438
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 481
+    wordCount: 581
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 93
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

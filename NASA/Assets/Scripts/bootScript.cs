@@ -2,20 +2,19 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Text;
+using System.Text.RegularExpressions;
 using System;
 using TMPro;
 
 using System.IO;
 using UnityEngine.Events;
 
+
 public class bootScript: MonoBehaviour
 {
     private TextMeshProUGUI text2;
 
     private RectTransform rectTransform;
-
-    protected FileInfo theSourceFile = null;
-    protected StreamReader reader = null;
     protected string text = " ";
 
     private string line = "";
@@ -26,23 +25,30 @@ public class bootScript: MonoBehaviour
     
     public UnityEvent bootOver;
 
-    public float waitTimeAfterBoot = 2.0f;
+    public float waitTimeAfterBoot = 4.0f;
     private float timeAfterBoot = 0.0f;
+
+    private string inputText = "";
  
+    private string[] lines;
+    private int currentLine = 0;
+
     void Start () {
-        theSourceFile = new FileInfo ("Assets\\Texts\\bootText.txt");
-        reader = theSourceFile.OpenText();
         text2 = GetComponent<TextMeshProUGUI>();
         rectTransform = GetComponent<RectTransform>();
+
+        inputText = text2.text;
+        text2.text = "";
+        lines = DivideInLines(inputText);
     }
    
     void Update () {        
 
         if (counter >= delay)
         {
-            if (line != null) 
+            if (currentLine + 1 <= lines.Length) 
             {
-                line = reader.ReadLine();
+                line = lines[currentLine];
                 text = text2.text + "\r\n" + line;
 
                 // Check if text size is bigger than allowed size
@@ -54,6 +60,8 @@ public class bootScript: MonoBehaviour
                 {
                     text2.text = text;
                 }
+                
+                currentLine += 1;
             }
             else
             {
@@ -71,5 +79,11 @@ public class bootScript: MonoBehaviour
         {
             counter += Time.deltaTime;
         }
+    }
+
+    public static string[] DivideInLines(string s)
+    {
+        char[] delimiters = new char[] { '\n' };
+        return s.Split(delimiters);
     }
 }
