@@ -24,7 +24,7 @@ public class Keylock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isInside)
+        if(isInside && Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Horizontal") == 0)
         {
             currentSequence += Input.inputString;
             
