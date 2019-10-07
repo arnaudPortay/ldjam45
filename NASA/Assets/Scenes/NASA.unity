@@ -2727,7 +2727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subject: {fileID: 0}
   RelatedPart: {fileID: 9181482498801511448}
-  RevealedDoor: {fileID: 0}
+  RevealedDoor: {fileID: 5155720522193819159}
   newVisibility: 0.1
   duration: 1
   blinking: 0
@@ -3994,6 +3994,11 @@ PrefabInstance:
       propertyPath: resetAudio
       value: 
       objectReference: {fileID: 318797460}
+    - target: {fileID: 2348878183371981929, guid: d6a1f11029a04ec4581aa1d102a983b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 864f237c2afd0af4b978a0f1183592ea, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a1f11029a04ec4581aa1d102a983b1, type: 3}
 --- !u!1 &5155720522193819157 stripped
@@ -4016,6 +4021,46 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -5495902117074765545, guid: e5c136897b586fb068af05d21743ce74, type: 3}
+--- !u!1 &5155720522193819159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9118674141712448553, guid: d6a1f11029a04ec4581aa1d102a983b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5155720522193819156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5155720522193819160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8739564410627125369, guid: d6a1f11029a04ec4581aa1d102a983b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5155720522193819156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5155720522193819161
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155720522193819159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 9169714918172525699, guid: e604d57cd0a5133449fe5fab3bc61131, type: 3}
+--- !u!64 &5155720522193819162
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155720522193819160}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 9205367704391172978, guid: e604d57cd0a5133449fe5fab3bc61131, type: 3}
 --- !u!114 &6596776281037207214 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2659191671232027321, guid: 21b77cdad9fc115409a43e3955d57a8c,

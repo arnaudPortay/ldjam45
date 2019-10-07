@@ -22,6 +22,7 @@ public class Detection : Ability
     {
         blinking = true;
         currentcolor = DoorRenderer.material.color;
+        RevealedDoor.GetComponent<MeshCollider>().enabled = false;
     }
 
     protected void FixedUpdate ()
