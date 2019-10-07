@@ -8,16 +8,12 @@ public class Mouse_Behaviour : MonoBehaviour
     public Vector3 frontAxis =  new Vector3(0,1,0);
     Vector3 movement;                   // The vector to store the direction of the player's movement.                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
-    public Vector3 actualPosition;
-    public Vector3 initialPosition;
     public bool canMove = true;
 
     void Start()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = GetComponent<Rigidbody>();
-        initialPosition = playerRigidbody.position;
-        initialPosition.y += 2;
     }
 
     void Update()
@@ -32,12 +28,7 @@ public class Mouse_Behaviour : MonoBehaviour
             Move (h);
         } 
         
-        // Respawn after a fall
-        actualPosition = playerRigidbody.position;
-        if (actualPosition.y < -15)
-        {
-            playerRigidbody.position = initialPosition;
-        } 
+        
     }
 
     void Move (float h)
