@@ -74,14 +74,13 @@ public class Mouse_Behaviour : MonoBehaviour
             {
                 mDoor5AlwaysOpen = true;
             }
-    void OnTriggerEnter(Collider other) 
-    {
+        }
 
         if 
-            (other.gameObject.CompareTag ("CheckPoint"))
+            (pOther.gameObject.CompareTag ("CheckPoint"))
         {
             print("New CHeckpoint reached !");
-            initialPos = other.gameObject.transform.position;
+            initialPos = pOther.gameObject.transform.position;
             initialRot = transform.rotation;
         }
     }
