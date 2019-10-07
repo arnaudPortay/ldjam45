@@ -6,6 +6,7 @@ public class Audio_Behaviour : MonoBehaviour
 {
     public AudioSource mAudioSource;
     public AudioSource Audio_MainMenu;
+    public AudioSource AudioInit;
     public AudioSource Audio_Vision;   
     public AudioSource Audio_Toucher;      
     public AudioSource Audio_Motrice;
@@ -23,7 +24,9 @@ public class Audio_Behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mAudioSource = Audio_MainMenu;
+        mAudioSource = AudioInit;
+        AudioInit.Play();
+        AudioInit.Pause();
         Audio_MainMenu.Play();
         Audio_MainMenu.Pause();
         Audio_Vision.Play();
