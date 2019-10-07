@@ -12,6 +12,7 @@ public class TimerGame : MonoBehaviour
     public TextMeshProUGUI timertext;
 
     public Vector3 initialPos;
+    Quaternion initialRot;
     public Vector3 actualPosition;
     public float StartTIme = 10;
     public float BreakTime = 2;
@@ -28,19 +29,25 @@ public class TimerGame : MonoBehaviour
     private GameObject fill; 
     private Image fillImage;
 
+    public GameObject Key;
+    SelfRotation_Key sk;
+    public float breakTimeModifier = 5.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = player.GetComponent<Rigidbody>();
         initialPos = playerRigidbody.position;
+        initialRot = playerRigidbody.rotation;
         PlayerMouse_Behaviour = player.GetComponent<Mouse_Behaviour>();
         PlayAudio_Behaviour = player.GetComponent<Audio_Behaviour>();
 
         //Slider
-        timerSlider.maxValue = StartTIme+5*6;
+        timerSlider.maxValue = StartTIme;
         fill = timerSlider.transform.GetChild (1).GetChild (0).gameObject; 
         fillImage = fill.GetComponent<Image> ();
+        sk = Key.GetComponent<SelfRotation_Key>();  
     }
 
     public void StartTimer()
@@ -52,6 +59,8 @@ public class TimerGame : MonoBehaviour
     {
         CurrentTime+=additionnal;
         StartTIme += additionnal;
+        BreakTime += additionnal/breakTimeModifier;
+        timerSlider.maxValue = StartTIme;
     }
 
     protected void FixedUpdate ()
@@ -63,37 +72,12 @@ public class TimerGame : MonoBehaviour
             return;
         }
         if
-            (CurrentTime > 0)
-        {
-            // Play part
-            CurrentTime -= Time.fixedDeltaTime;
-        }
-        if
-            ((CurrentTime <= 0 && CurrentBreakTime <= 0) || (actualPosition.y < -15 && !FallCase))
-        {
-            if (actualPosition.y < -15)
-            {
-                FallCase = true;
-            }
-            // Play part is finished, we go back to the beginning
-            CurrentBreakTime = BreakTime;           
-            PlayerMouse_Behaviour.canMove = false;
-            playerRigidbody.position = initialPos;
-            actualPosition = initialPos;   
-            if (firstDeath && cameraFollow)
-            {
-                Camera.main.gameObject.SetActive(false);
-                cameraFollow.gameObject.SetActive(true);
-                firstDeath = false;
-            }  
-            PlayAudio_Behaviour.timerOut = true;        
-        }  
-         if
-            ((CurrentTime <= 0 && CurrentBreakTime > 0) || FallCase)
+            (CurrentBreakTime > 0 || FallCase)
         {
             // Break party during tempsint2 seconds. we can't move
             CurrentBreakTime -= Time.fixedDeltaTime;
-           
+            CurrentTime = (BreakTime-CurrentBreakTime)*StartTIme/BreakTime;
+            newColour = new Color( 0,0,0); // black
             if (CurrentBreakTime <= 0)
             {
                 // The break part is finished, we can play
@@ -103,14 +87,48 @@ public class TimerGame : MonoBehaviour
                 FallCase = false;
             }
         }   
+        else if (PlayerMouse_Behaviour.canMove) //other behaviour that restrict movement don't make timer run
+        {
+            if // decompte
+                (CurrentTime > 0)
+            {
+                // Play part
+                CurrentTime -= Time.fixedDeltaTime;
+                sk.rotationChange(CurrentTime/StartTIme);
+                newColour = new Color(                                             
+                                    1f - (timerSlider.value/timerSlider.maxValue),     // R - empty
+                                    0f,            // G - full
+                                    timerSlider.value/timerSlider.maxValue                                       // B - Unused
+                                );
+            }
+            if // fin du decompte
+                (CurrentTime <= 0  || (actualPosition.y < -15 && !FallCase))
+            {
+                if (actualPosition.y < -15)
+                {
+                    FallCase = true;
+                }
+                // Play part is finished, we go back to the beginning
+                CurrentBreakTime = BreakTime;           
+                PlayerMouse_Behaviour.canMove = false;
+                playerRigidbody.position = initialPos;
+                playerRigidbody.rotation = initialRot;
+                actualPosition = initialPos; 
+                sk.rotationChange(-StartTIme/BreakTime);
+                //changement de camera apres la première mort
+                if (firstDeath && cameraFollow)
+                {
+                    Camera.main.gameObject.SetActive(false);
+                    cameraFollow.gameObject.SetActive(true);
+                    firstDeath = false;
+                }  
+                PlayAudio_Behaviour.timerOut = true;        
+            }  
+        }
+        
 
         // Slider
         timerSlider.value = CurrentTime;
-        newColour = new Color(                                             
-                                1f - (timerSlider.value/timerSlider.maxValue),     // R - empty
-                                0f,            // G - full
-                                timerSlider.value/timerSlider.maxValue                                       // B - Unused
-                            );
         fillImage.color = newColour;
     }
 }
