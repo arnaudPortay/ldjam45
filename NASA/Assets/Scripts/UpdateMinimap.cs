@@ -29,21 +29,22 @@ public class UpdateMinimap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject player = GameObject.FindGameObjectsWithTag ("Player")[0];
-
-        Vector2 playerPos2D = new Vector2(player.transform.position.x, player.transform.position.z);
-
-        Vector2 levelPos2D = new Vector2(Level.transform.position.x, Level.transform.position.z);
-
-        Vector2 redDotPos = playerPos2D - levelPos2D;
-        redDotPos /= LevelSize;
-        redDotPos *= mapSize;
-
-        Vector2 correctRatio = CentersMappingRatio;
-        correctRatio.y = correctRatio.y * -1;
-        redDotPos += mapSize * correctRatio;
-        if(RedDot)
+        if(Level && RedDot)
         {
+            GameObject player = GameObject.FindGameObjectsWithTag ("Player")[0];
+
+            Vector2 playerPos2D = new Vector2(player.transform.position.x, player.transform.position.z);
+
+            Vector2 levelPos2D = new Vector2(Level.transform.position.x, Level.transform.position.z);
+
+            Vector2 redDotPos = playerPos2D - levelPos2D;
+            redDotPos /= LevelSize;
+            redDotPos *= mapSize;
+
+            Vector2 correctRatio = CentersMappingRatio;
+            correctRatio.y = correctRatio.y * -1;
+            redDotPos += mapSize * correctRatio;
+            
             Vector3 mapping = new Vector3(-redDotPos.x, -redDotPos.y, 0);
             RedDot.transform.position = mapping + Minimap.transform.position;
         }

@@ -9,6 +9,12 @@ ModelImporter:
   - first:
       74: -9112369781527684547
     second: DoorContour|DoorOpen
+  - first:
+      74: 5500117586724521006
+    second: DoorContour|DoorSlide
+  - first:
+      74: -2699309441627764329
+    second: DoorContour|SlowlyCloseSlide
   externalObjects: {}
   materials:
     importMaterials: 1
