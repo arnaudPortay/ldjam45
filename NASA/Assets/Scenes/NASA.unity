@@ -2585,6 +2585,12 @@ PrefabInstance:
       propertyPath: RelatedPart
       value: 
       objectReference: {fileID: 2701648534942774841}
+    - target: {fileID: 3275681595945924902, guid: 070143ccea7a3724fb4949acc5b0fb24,
+        type: 3}
+      propertyPath: neatSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d39881474887d77418ea53f083480709,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 070143ccea7a3724fb4949acc5b0fb24, type: 3}
 --- !u!1 &1507097352
@@ -3876,6 +3882,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColorPlateform
       objectReference: {fileID: 0}
+    - target: {fileID: 602622736418645370, guid: d6a1f11029a04ec4581aa1d102a983b1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 512205928540ace4a994f8d7cbfe1ff0,
+        type: 3}
     - target: {fileID: 394749227164434796, guid: d6a1f11029a04ec4581aa1d102a983b1,
         type: 3}
       propertyPath: mLight
@@ -3884,12 +3896,17 @@ PrefabInstance:
     - target: {fileID: 4358504382229666081, guid: d6a1f11029a04ec4581aa1d102a983b1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.61
+      value: -26.18
       objectReference: {fileID: 0}
     - target: {fileID: 4358504382229666081, guid: d6a1f11029a04ec4581aa1d102a983b1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.82
+      value: 7.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358504382229666081, guid: d6a1f11029a04ec4581aa1d102a983b1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.37271437
       objectReference: {fileID: 0}
     - target: {fileID: 8674034724908228570, guid: d6a1f11029a04ec4581aa1d102a983b1,
         type: 3}
