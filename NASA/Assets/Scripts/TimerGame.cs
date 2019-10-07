@@ -22,8 +22,11 @@ public class TimerGame : MonoBehaviour
     bool started = false;
     bool firstDeath = true;
     public Camera cameraFollow;
-
+    public Slider timerSlider; 
     private bool FallCase = false;
+    private Color newColour;
+    private GameObject fill; 
+    private Image fillImage;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +34,13 @@ public class TimerGame : MonoBehaviour
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = player.GetComponent<Rigidbody>();
         initialPos = playerRigidbody.position;
-        initialPos.y += 2;
         PlayerMouse_Behaviour = player.GetComponent<Mouse_Behaviour>();
         PlayAudio_Behaviour = player.GetComponent<Audio_Behaviour>();
+
+        //Slider
+        timerSlider.maxValue = StartTIme+5*6;
+        fill = timerSlider.transform.GetChild (1).GetChild (0).gameObject; 
+        fillImage = fill.GetComponent<Image> ();
     }
 
     public void StartTimer()
@@ -62,7 +69,7 @@ public class TimerGame : MonoBehaviour
             CurrentTime -= Time.fixedDeltaTime;
         }
         if
-            ((CurrentTime <= 0 && CurrentBreakTime <= 0) || actualPosition.y < -15)
+            ((CurrentTime <= 0 && CurrentBreakTime <= 0) || (actualPosition.y < -15 && !FallCase))
         {
             if (actualPosition.y < -15)
             {
@@ -71,7 +78,8 @@ public class TimerGame : MonoBehaviour
             // Play part is finished, we go back to the beginning
             CurrentBreakTime = BreakTime;           
             PlayerMouse_Behaviour.canMove = false;
-            playerRigidbody.position = initialPos;    
+            playerRigidbody.position = initialPos;
+            actualPosition = initialPos;   
             if (firstDeath && cameraFollow)
             {
                 Camera.main.gameObject.SetActive(false);
@@ -95,5 +103,14 @@ public class TimerGame : MonoBehaviour
                 FallCase = false;
             }
         }   
+
+        // Slider
+        timerSlider.value = CurrentTime;
+        newColour = new Color(                                             
+                                1f - (timerSlider.value/timerSlider.maxValue),     // R - empty
+                                0f,            // G - full
+                                timerSlider.value/timerSlider.maxValue                                       // B - Unused
+                            );
+        fillImage.color = newColour;
     }
 }

@@ -16,7 +16,7 @@ public class CollectItem : MonoBehaviour {
     public float journeyTime = 1.0f;
     // The time at which the animation started.
     private float startTime;
-
+    public GameObject targetLookAt;
     public GameObject Queue;
     public float AdditionnalTime = 5.0f;
 
@@ -31,6 +31,10 @@ public class CollectItem : MonoBehaviour {
 	int index;
     Audio_Behaviour PlayAudio_Behaviour;
 
+    bool timerstarted;
+
+    float timebeforejump;
+    public float delay = 2.0f;
 	void OnDrawGizmos()
 	{
         if (!pathParent)
@@ -57,9 +61,21 @@ public class CollectItem : MonoBehaviour {
 
     void FixedUpdate ()
     {
+        if (timerstarted)
+        {
+            if (timebeforejump < 0)
+            {
+                delayedWork();
+                timerstarted = false;
+            }
+            else
+            {
+                timebeforejump -= Time.fixedDeltaTime;
+            }
+        }
         if (relocate)
         {
-           cameraFollow.transform.LookAt(transform.position);
+           cameraFollow.transform.LookAt(targetLookAt.transform.position);
            cameraFollow.transform.position = Vector3.MoveTowards (cameraFollow.transform.position, targetPoint.position, journeyTime * Time.fixedDeltaTime);
             if (Vector3.Distance (cameraFollow.transform.position, targetPoint.position) < 0.1f) 
             {
@@ -74,6 +90,10 @@ public class CollectItem : MonoBehaviour {
         }
         
     }
+    void delayedWork()
+    {
+        relocate = true;
+    }
     void setTurning(bool sure)
     {
         if (sure)
@@ -81,14 +101,20 @@ public class CollectItem : MonoBehaviour {
             oldPosition = cameraFollow.transform.position;
             cameraFollow.transform.position = targetPoint.position;
             oldOrientation = cameraFollow.transform.rotation;
+            
+            cameraFollow.transform.LookAt(targetLookAt.transform.position);
+            timebeforejump = delay;
+            timerstarted = true;
         }
         else
         {
             cameraFollow.transform.rotation = oldOrientation;
             cameraFollow.transform.position = oldPosition;
+            relocate = false;
         }
         //fin
-        relocate = sure;
+        
+        
         //cameraFollow.transform.rotation = Quaternion.Inverse(transform.rotation) * initialRotation;
         //cameraFollow.transform.position = transform.TransformVector(initialRelativPos);
         Rigidbody rb = GetComponent<Rigidbody>();
