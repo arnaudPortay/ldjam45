@@ -9,7 +9,7 @@ public class Keylock : MonoBehaviour
 
     public string LockKey = "nasa";
 
-    public UnityEvent Unlocked;
+    public GameObject Doors;
 
     string currentSequence = "";
     bool isInside = false;
@@ -37,7 +37,13 @@ public class Keylock : MonoBehaviour
 
             if(currentSequence == LockKey)
             {
-                Unlocked.Invoke();
+                if (Doors != null)
+                {
+                    for (int i=0; i<Doors.transform.childCount; i++)
+                    {
+                        Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenDoor", true);
+                    }
+                }
             }
         }
     }
