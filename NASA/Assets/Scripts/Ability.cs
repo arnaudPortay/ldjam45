@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Ability : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Ability : MonoBehaviour
 
     public GameObject subject; 
     public GameObject RelatedPart;
+
+    public GameObject mText;
     // Start is called before the first frame update
     public void setSubject(GameObject g)
     {
@@ -31,10 +34,27 @@ public class Ability : MonoBehaviour
         }
         
         InitAbility();
+        DisplayText();
     }
 
     virtual protected void InitAbility ()
     {
+    }
+
+    virtual protected void DisplayText ()
+    {
+        Debug.Log("Display text ask");
+        if (!mText)
+        {
+            mText = GameObject.Find("AbilityText");
+        }
+
+        if (mText)
+        {
+            Debug.Log("Display text ok");
+            mText.GetComponent<PickUpTextDisplay>().SetText(GetPickUpText(), GetPresentationText());
+        }
+        
     }
 
     virtual public void ListenerEventHandler(Collider other) 

@@ -115,4 +115,24 @@ public class Nitro : Ability
             nitroSlider.value = tempsint;   
         }  
     }
+
+    public override string GetPickUpText()
+    {
+        return "Nitro ability acquired";
+    }
+
+    public override string GetPresentationText()
+    {
+        return "You can now activate the nitro with [N].";
+    }
+
+    public override string GetAbilityName()
+    {
+        return "Nitro";
+    }
+
+    public override string GetAbilityKey()
+    {
+        return "[N]";
+    }
 }

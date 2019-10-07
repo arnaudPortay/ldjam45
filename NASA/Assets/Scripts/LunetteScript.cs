@@ -14,4 +14,14 @@ public class LunetteScript : Ability
             image.sprite = neatSprite;
         }
     }
+
+    public override string GetPickUpText()
+    {
+        return "Vision ability acquired";
+    }
+
+    public override string GetPresentationText()
+    {
+        return "You can see the world completely sharp.";
+    }
 }
