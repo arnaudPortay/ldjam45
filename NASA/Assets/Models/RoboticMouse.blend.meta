@@ -9,6 +9,36 @@ ModelImporter:
   - first:
       74: 8242925313887182361
     second: Camera|GoFront
+  - first:
+      74: -5457254466866515388
+    second: Cylinder|SlowBackward
+  - first:
+      74: -1229111357810647341
+    second: Cylinder|SlowBackward.001
+  - first:
+      74: -5031316728422207775
+    second: Cylinder|SlowBackward.002
+  - first:
+      74: 2664727489877660926
+    second: Cylinder|SlowForward
+  - first:
+      74: -7459953734443381107
+    second: Cylinder|TailCurveAction
+  - first:
+      74: 6510675502188905497
+    second: Chassis|SlowBackward
+  - first:
+      74: -5778342439419010470
+    second: Chassis|SlowBackward.001
+  - first:
+      74: -6750370938337834647
+    second: Chassis|SlowBackward.002
+  - first:
+      74: 6221352894561028395
+    second: Chassis|SlowForward
+  - first:
+      74: -3601755467068381878
+    second: Chassis|TailCurveAction
   externalObjects: {}
   materials:
     importMaterials: 1
