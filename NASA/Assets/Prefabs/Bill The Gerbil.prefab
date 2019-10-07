@@ -1212,7 +1212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8727302066986868617
 Transform:
   m_ObjectHideFlags: 0
@@ -1245,7 +1245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6316013375436716096
 Transform:
   m_ObjectHideFlags: 0
@@ -2129,8 +2129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   frontAxis: {x: 0, y: 0, z: 1}
-  actualPosition: {x: 0, y: 0, z: 0}
-  initialPosition: {x: 0, y: 0, z: 0}
   canMove: 1
 --- !u!114 &1931727136707423318
 MonoBehaviour:
@@ -2182,7 +2180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1787144022801225435
 Transform:
   m_ObjectHideFlags: 0
@@ -2534,7 +2532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5517549107173730363
 Transform:
   m_ObjectHideFlags: 0
@@ -2989,7 +2987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9119081009034260846
 Transform:
   m_ObjectHideFlags: 0
