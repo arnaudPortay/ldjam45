@@ -12,6 +12,7 @@ public class TimerGame : MonoBehaviour
     public TextMeshProUGUI timertext;
 
     public Vector3 initialPos;
+    public Vector3 actualPosition;
     public float StartTIme = 10;
     public float BreakTime = 2;
     public GameObject player;
@@ -22,12 +23,15 @@ public class TimerGame : MonoBehaviour
     bool firstDeath = true;
     public Camera cameraFollow;
 
+    private bool FallCase = false;
+
     // Start is called before the first frame update
     void Start()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = player.GetComponent<Rigidbody>();
         initialPos = playerRigidbody.position;
+        initialPos.y += 2;
         PlayerMouse_Behaviour = player.GetComponent<Mouse_Behaviour>();
         PlayAudio_Behaviour = player.GetComponent<Audio_Behaviour>();
     }
@@ -46,6 +50,7 @@ public class TimerGame : MonoBehaviour
     protected void FixedUpdate ()
     {
         timertext.text = "Time Left : "+CurrentTime;
+        actualPosition = playerRigidbody.position;
         if (!started)
         {
             return;
@@ -57,8 +62,12 @@ public class TimerGame : MonoBehaviour
             CurrentTime -= Time.fixedDeltaTime;
         }
         if
-            (CurrentTime <= 0 && CurrentBreakTime <= 0)
+            ((CurrentTime <= 0 && CurrentBreakTime <= 0) || actualPosition.y < -15)
         {
+            if (actualPosition.y < -15)
+            {
+                FallCase = true;
+            }
             // Play part is finished, we go back to the beginning
             CurrentBreakTime = BreakTime;           
             PlayerMouse_Behaviour.canMove = false;
@@ -72,7 +81,7 @@ public class TimerGame : MonoBehaviour
             PlayAudio_Behaviour.timerOut = true;        
         }  
          if
-            (CurrentTime <= 0 && CurrentBreakTime > 0)
+            ((CurrentTime <= 0 && CurrentBreakTime > 0) || FallCase)
         {
             // Break party during tempsint2 seconds. we can't move
             CurrentBreakTime -= Time.fixedDeltaTime;
@@ -83,7 +92,8 @@ public class TimerGame : MonoBehaviour
                 PlayerMouse_Behaviour.canMove = true;
                 CurrentTime = StartTIme;
                 CurrentBreakTime = 0;
+                FallCase = false;
             }
-        }  
+        }   
     }
 }
