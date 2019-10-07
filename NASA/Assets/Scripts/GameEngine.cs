@@ -18,7 +18,6 @@ public class GameEngine : MonoBehaviour
     public float blurDecrementStep = 0.01f;
 
     private bool isInit = false;
-
     
     // Start is called before the first frame update
     void Start()
@@ -43,7 +42,6 @@ public class GameEngine : MonoBehaviour
         if (player)
         {
             player.GetComponent<Mouse_Behaviour>().enabled = true;
-            player.GetComponent<Audio_Behaviour>().startMusique();
             isInit = true;
         }
         GetComponent<TimerGame>().StartTimer();
