@@ -2043,7 +2043,7 @@ MonoBehaviour:
   subject: {fileID: 0}
   RelatedPart: {fileID: 1012319230}
   jumping: 0
-  jumpStr: 3
+  jumpStr: 4
   timebeforejump: 0
   timerstarted: 1
   delay: 0.05
@@ -2468,6 +2468,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5155720522193819156}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1452395588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8739564410627125369, guid: d6a1f11029a04ec4581aa1d102a983b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5155720522193819156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1452395590
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452395588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 9205367704391172978, guid: e604d57cd0a5133449fe5fab3bc61131, type: 3}
 --- !u!1001 &1493110124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4027,12 +4047,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5155720522193819156}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5155720522193819160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8739564410627125369, guid: d6a1f11029a04ec4581aa1d102a983b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 5155720522193819156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!64 &5155720522193819161
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4047,20 +4061,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 9169714918172525699, guid: e604d57cd0a5133449fe5fab3bc61131, type: 3}
---- !u!64 &5155720522193819162
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5155720522193819160}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 9205367704391172978, guid: e604d57cd0a5133449fe5fab3bc61131, type: 3}
 --- !u!114 &6596776281037207214 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2659191671232027321, guid: 21b77cdad9fc115409a43e3955d57a8c,
