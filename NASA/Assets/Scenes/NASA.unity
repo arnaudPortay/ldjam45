@@ -2243,6 +2243,21 @@ PrefabInstance:
       propertyPath: mLight
       value: 
       objectReference: {fileID: 6908339396605233782}
+    - target: {fileID: 6728601006843906704, guid: 1f885e0e523d6884f8ada75ea9b68086,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795000172201797415, guid: 1f885e0e523d6884f8ada75ea9b68086,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052192063946747794, guid: 1f885e0e523d6884f8ada75ea9b68086,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f885e0e523d6884f8ada75ea9b68086, type: 3}
 --- !u!1 &1135036578
@@ -4341,12 +4356,12 @@ PrefabInstance:
     - target: {fileID: 1931727136707423318, guid: 21b77cdad9fc115409a43e3955d57a8c,
         type: 3}
       propertyPath: delay
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1931727136707423318, guid: 21b77cdad9fc115409a43e3955d57a8c,
         type: 3}
       propertyPath: journeyTime
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4608717051524526902, guid: 21b77cdad9fc115409a43e3955d57a8c,
         type: 3}

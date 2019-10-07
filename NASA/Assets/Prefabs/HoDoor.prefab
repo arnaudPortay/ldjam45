@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8833070829180843681}
   - component: {fileID: 2094288883391652627}
   - component: {fileID: 5432198964697796868}
-  - component: {fileID: 6952549218396415915}
+  - component: {fileID: 1677363090766398121}
   m_Layer: 0
   m_Name: DoorContour
   m_TagString: Untagged
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6952549218396415915
+--- !u!64 &1677363090766398121
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +92,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: -3957017631395468446, guid: 7b32f2f049e62b04eaab8be598c1e231, type: 3}
+  m_Mesh: {fileID: -3957017631395468446, guid: 95e940973878f434089013c7f7306759, type: 3}
 --- !u!1 &9016487603468417498
 GameObject:
   m_ObjectHideFlags: 0
