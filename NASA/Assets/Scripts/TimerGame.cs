@@ -10,9 +10,6 @@ public class TimerGame : MonoBehaviour
     public float CurrentTime = 5;
     float CurrentBreakTime = 0;
     public TextMeshProUGUI timertext;
-
-    public Vector3 initialPos;
-    Quaternion initialRot;
     public Vector3 actualPosition;
     public float StartTIme = 10;
     public float BreakTime = 2;
@@ -38,11 +35,9 @@ public class TimerGame : MonoBehaviour
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = player.GetComponent<Rigidbody>();
-        initialPos = player.transform.position;
-        initialRot = player.transform.rotation;
+        
         PlayerMouse_Behaviour = player.GetComponent<Mouse_Behaviour>();
         PlayAudio_Behaviour = player.GetComponent<Audio_Behaviour>();
-
         //Slider
         timerSlider.maxValue = StartTIme;
         fill = timerSlider.transform.GetChild (1).GetChild (0).gameObject; 
@@ -113,9 +108,9 @@ public class TimerGame : MonoBehaviour
                 CurrentBreakTime = BreakTime;           
                 //PlayerMouse_Behaviour.canMove = false;
                 
-                player.transform.position = initialPos;
-                player.transform.rotation = initialRot;
-                actualPosition = initialPos; 
+                player.transform.position = PlayerMouse_Behaviour.initialPos;
+                player.transform.rotation = PlayerMouse_Behaviour.initialRot;
+                actualPosition = PlayerMouse_Behaviour.initialPos; 
                 sk.rotationChange(-StartTIme/BreakTime);
                 PlayerMouse_Behaviour.stopMovement(true);
                 //changement de camera apres la première mort
