@@ -708,6 +708,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 1516453739927421915, guid: c9ae18331cf9e87459165679d96e9686,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2264088541923350196, guid: c9ae18331cf9e87459165679d96e9686,
         type: 3}
       propertyPath: m_TagString
@@ -792,11 +797,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516453739927421915, guid: c9ae18331cf9e87459165679d96e9686,
-        type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ae18331cf9e87459165679d96e9686, type: 3}
@@ -2738,7 +2738,7 @@ MonoBehaviour:
   player: {fileID: 4642956849499231211}
   cameraFollow: {fileID: 7805681846063226046}
   timerSlider: {fileID: 1107316915}
-  Key: {fileID: 2067676554}
+  Key: {fileID: 564841173}
   breakTimeModifier: 5
 --- !u!82 &1950806583 stripped
 AudioSource:
@@ -3011,12 +3011,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052006999}
   m_CullTransparentMesh: 0
---- !u!1 &2067676554 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5882172343894842195, guid: 21b77cdad9fc115409a43e3955d57a8c,
-    type: 3}
-  m_PrefabInstance: {fileID: 9181482498801511447}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2080596214
 GameObject:
   m_ObjectHideFlags: 0
@@ -3271,11 +3265,6 @@ PrefabInstance:
       propertyPath: mLight
       value: 
       objectReference: {fileID: 9181482498801511449}
-    - target: {fileID: 8060286816981006152, guid: d6a1f11029a04ec4581aa1d102a983b1,
-        type: 3}
-      propertyPath: m_Name
-      value: SlidingDoor
-      objectReference: {fileID: 0}
     - target: {fileID: 4439652871662427297, guid: d6a1f11029a04ec4581aa1d102a983b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3326,11 +3315,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 1902844175840687762, guid: d6a1f11029a04ec4581aa1d102a983b1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4358504382229666081, guid: d6a1f11029a04ec4581aa1d102a983b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3345,6 +3329,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DoorToMotor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060286816981006152, guid: d6a1f11029a04ec4581aa1d102a983b1,
+        type: 3}
+      propertyPath: m_Name
+      value: SlidingDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902844175840687762, guid: d6a1f11029a04ec4581aa1d102a983b1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a1f11029a04ec4581aa1d102a983b1, type: 3}
