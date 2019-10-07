@@ -17,8 +17,8 @@ public class ColorZone : MonoBehaviour
     private Color mLastColorSeen = Color.green;
 
     public Color[] mColors = new Color[3] { Color.blue, Color.white, Color.red};
-    private int mColorToCompareIndex = 0;
-    public UnityEvent OpenDoorEvent;
+    public int mColorToCompareIndex = 0;
+    public GameObject Doors;
 
     private void Start()
     {
@@ -33,11 +33,13 @@ public class ColorZone : MonoBehaviour
             if 
                 (mLight.enabled && mLight.color !=  mLastColorSeen)
             {
+                Debug.Log("Same color");
                 if
                     (mColors[mColorToCompareIndex] == mLight.color)
                 {
                     mPlanes[mColorToCompareIndex].GetComponent<ModulatePanel>().Activate(true);
                     mColorToCompareIndex += 1;
+                    Debug.Log("+1");
                 }
                 else
                 {
@@ -56,13 +58,16 @@ public class ColorZone : MonoBehaviour
         }
 
         if 
-            (mColorToCompareIndex >= mColors.Length)
+            (/*mColorToCompareIndex >= mColors.Length*/ mColorToCompareIndex == 1)
         {
             mZoneActivated = true;
 
-            if (OpenDoorEvent != null)
+            if (Doors != null)
             {
-                OpenDoorEvent.Invoke();
+                for (int i=0; i<Doors.transform.childCount; i++)
+                {
+                    Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenDoor", true);;
+                }
             }
         }
     }
