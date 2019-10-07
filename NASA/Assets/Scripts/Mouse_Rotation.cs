@@ -59,4 +59,14 @@ public class Mouse_Rotation : Ability
         }
        
     }
+
+    public override string GetPickUpText()
+    {
+        return "Rotation ability acquired";
+    }
+
+    public override string GetPresentationText()
+    {
+        return "You can now turn right and left.";
+    }
 }

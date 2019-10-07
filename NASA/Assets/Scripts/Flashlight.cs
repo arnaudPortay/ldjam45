@@ -81,22 +81,22 @@ public class Flashlight : Ability
         }
     }
 
-    virtual public string GetPickUpText()
+    public override string GetPickUpText()
     {
-        return "You picked a nose !";
+        return "Flashlight ability acquired";
     }
 
-    virtual public string GetPresentationText()
+    public override string GetPresentationText()
     {
-        return "You have new the possibilty to illuminate your world with [R]. If you want some color in your life, press [F].";
+        return "You can activate/desactivate the flashlight with [R] and change the color with [F].";
     }
 
-    virtual public string GetAbilityName()
+    public override string GetAbilityName()
     {
         return "Flashlight/Color";
     }
 
-    virtual public string GetAbilityKey()
+    public override string GetAbilityKey()
     {
         return "[R]/[F]";
     }

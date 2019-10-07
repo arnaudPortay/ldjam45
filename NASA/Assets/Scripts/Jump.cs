@@ -86,24 +86,24 @@ public class Jump : Ability
         }
     }
 
-    virtual public string GetPickUpText()
+    public override string GetPickUpText()
     {
-        return "You picked a nose !";
+        return "Jump ability acquired";
     }
 
-    virtual public string GetPresentationText()
+    public override string GetPresentationText()
     {
-        return "You have new the possibilty to illuminate your world with [R]. If you want some color in your life, press [F].";
+        return "You can now jump with [SPACE].";
     }
 
-    virtual public string GetAbilityName()
+    public override string GetAbilityName()
     {
-        return "Flashlight/Color";
+        return "Jump";
     }
 
-    virtual public string GetAbilityKey()
+    public override string GetAbilityKey()
     {
-        return "[R]/[F]";
+        return "[SPACE]";
     }
 
 }

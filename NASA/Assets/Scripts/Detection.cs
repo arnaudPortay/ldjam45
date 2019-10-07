@@ -16,7 +16,11 @@ public class Detection : Ability
     void Start()
     {
         blinking = false;
-        DoorRenderer = RevealedDoor.GetComponent<MeshRenderer>();
+        if (RevealedDoor)
+        {
+           DoorRenderer = RevealedDoor.GetComponent<MeshRenderer>(); 
+        }
+        
     }
 
     protected override void InitAbility ()
@@ -39,14 +43,14 @@ public class Detection : Ability
     }
 
     
-    virtual public string GetPickUpText()
+    public override string GetPickUpText()
     {
-        return "You picked up moustaches !";
+        return "Detection ability acquired";
     }
 
-    virtual public string GetPresentationText()
+    public override string GetPresentationText()
     {
-        return "Those incredible moustaches give you the power of detection and reveal the minimap. ";
+        return "You can now feel the environment.";
     }
 
 }
