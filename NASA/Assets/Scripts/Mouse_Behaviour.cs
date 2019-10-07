@@ -79,7 +79,7 @@ public class Mouse_Behaviour : MonoBehaviour
         if 
             (pOther.gameObject.CompareTag ("CheckPoint"))
         {
-            print("New CHeckpoint reached !");
+            //print("New CHeckpoint reached !");
             initialPos = pOther.gameObject.transform.position;
             initialRot = transform.rotation;
         }
