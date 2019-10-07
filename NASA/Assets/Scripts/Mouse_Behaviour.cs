@@ -12,10 +12,15 @@ public class Mouse_Behaviour : MonoBehaviour
     RigidbodyConstraints oldConstraints;
     public bool mDoor5AlwaysOpen = false;
 
+    public Vector3 initialPos;
+    public Quaternion initialRot;
+
     void Start()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = GetComponent<Rigidbody>();
+        initialPos = transform.position;
+        initialRot = transform.rotation;
     }
 
     void FixedUpdate()
@@ -69,6 +74,15 @@ public class Mouse_Behaviour : MonoBehaviour
             {
                 mDoor5AlwaysOpen = true;
             }
+    void OnTriggerEnter(Collider other) 
+    {
+
+        if 
+            (other.gameObject.CompareTag ("CheckPoint"))
+        {
+            print("New CHeckpoint reached !");
+            initialPos = other.gameObject.transform.position;
+            initialRot = transform.rotation;
         }
     }
 }

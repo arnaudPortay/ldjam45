@@ -12,6 +12,7 @@ TagManager:
   - endZone
   - Musique
   - ColorZone
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
