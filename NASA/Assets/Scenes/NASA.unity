@@ -2277,7 +2277,7 @@ PrefabInstance:
         type: 3}
       propertyPath: image
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1541186544}
     - target: {fileID: 3275681595945924902, guid: 070143ccea7a3724fb4949acc5b0fb24,
         type: 3}
       propertyPath: RelatedPart
@@ -2394,6 +2394,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507919034}
   m_CullTransparentMesh: 0
+--- !u!212 &1541186544 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 602622736418645370, guid: d6a1f11029a04ec4581aa1d102a983b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5155720522193819156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1669105885
 GameObject:
   m_ObjectHideFlags: 0
