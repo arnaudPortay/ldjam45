@@ -48,6 +48,7 @@ public class TimerGame : MonoBehaviour
     public void StartTimer()
     {
         started = true;
+        timerSlider.gameObject.SetActive(true);
     }
 
     public void addTime(float additionnal)

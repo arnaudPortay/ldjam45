@@ -36,7 +36,6 @@ public class Audio_Behaviour : MonoBehaviour
         Audio_Audition_Sentiments.Pause();
         Audio_Item.Pause();
 
-        startMusique();
     }
     public void startMusique()
     {
