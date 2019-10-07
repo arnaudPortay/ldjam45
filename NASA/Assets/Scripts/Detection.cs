@@ -35,5 +35,15 @@ public class Detection : Ability
 
     }
 
+    
+    virtual public string GetPickUpText()
+    {
+        return "You picked up moustaches !"
+    }
+
+    virtual public string GetPresentationText()
+    {
+        return "Those incredible moustaches give you the power of detection and reveal the minimap. ";
+    }
 
 }
