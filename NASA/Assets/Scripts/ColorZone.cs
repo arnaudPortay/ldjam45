@@ -66,7 +66,7 @@ public class ColorZone : MonoBehaviour
             {
                 for (int i=0; i<Doors.transform.childCount; i++)
                 {
-                    Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenDoor", true);;
+                    Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenDoor", true);
                 }
             }
         }

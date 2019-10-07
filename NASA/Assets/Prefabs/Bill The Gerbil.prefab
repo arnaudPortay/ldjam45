@@ -2220,9 +2220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c660e9b6e9d85f84aa72b575486342db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   frontAxis: {x: 0, y: 0, z: 1}
   canMove: 1
+  initialPos: {x: 0, y: 0, z: 0}
+  initialRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1931727136707423318
 MonoBehaviour:
   m_ObjectHideFlags: 0
