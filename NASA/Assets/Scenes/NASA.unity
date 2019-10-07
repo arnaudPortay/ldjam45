@@ -1182,6 +1182,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 300
   RotationAxis: {x: 0, y: 1, z: 0}
+--- !u!82 &692242255 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4328225264936875136, guid: d6a1f11029a04ec4581aa1d102a983b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5155720522193819156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &711033281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2462,7 +2468,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c91eee0cb8962814f9df5bacfc719167, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d916b3164c6faef4aa7d442a2f469058, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3833,6 +3839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAudioSource: {fileID: 0}
   Audio_MainMenu: {fileID: 318797460}
+  AudioInit: {fileID: 692242255}
   Audio_Vision: {fileID: 898822720}
   Audio_Toucher: {fileID: 630393493}
   Audio_Motrice: {fileID: 1950806583}
@@ -3849,6 +3856,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4328225264936875136, guid: d6a1f11029a04ec4581aa1d102a983b1,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d916b3164c6faef4aa7d442a2f469058, type: 3}
     - target: {fileID: 8866341475629795312, guid: d6a1f11029a04ec4581aa1d102a983b1,
         type: 3}
       propertyPath: m_Name
