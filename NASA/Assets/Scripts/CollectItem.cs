@@ -26,10 +26,17 @@ public class CollectItem : MonoBehaviour {
 
     Vector3 oldPosition;
     Quaternion oldOrientation;
+
+    RigidbodyConstraints oldConstraints;
 	int index;
+    Audio_Behaviour PlayAudio_Behaviour;
 
 	void OnDrawGizmos()
 	{
+        if (!pathParent)
+        {
+            return;
+        }
 		Vector3 from;
 		Vector3 to;
 		for (int a=0; a<pathParent.childCount; a++)
@@ -45,6 +52,7 @@ public class CollectItem : MonoBehaviour {
     {
         index = 0;
 		targetPoint = pathParent.GetChild (index);
+        PlayAudio_Behaviour = GetComponent<Audio_Behaviour>();
     }
 
     void FixedUpdate ()
@@ -83,6 +91,16 @@ public class CollectItem : MonoBehaviour {
         relocate = sure;
         //cameraFollow.transform.rotation = Quaternion.Inverse(transform.rotation) * initialRotation;
         //cameraFollow.transform.position = transform.TransformVector(initialRelativPos);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (sure)
+        {
+            oldConstraints = rb.constraints;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+        else
+        {
+            rb.constraints = oldConstraints;
+        }
         Mouse_Behaviour behave = GetComponent<Mouse_Behaviour>();
         if (behave)
         {
@@ -118,6 +136,7 @@ public class CollectItem : MonoBehaviour {
             {
                 setTurning(true);
             }
+            PlayAudio_Behaviour.itemSound();
         }
         else if (pOther.gameObject.CompareTag("endZone")) 
         {

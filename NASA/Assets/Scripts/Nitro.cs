@@ -71,7 +71,7 @@ public class Nitro : Ability
         {
              playerRigidbody = subject.GetComponent<Rigidbody>();
         }   
-        else if
+        if
             (temps <= 0 && temps2 <=0 && n)
         {
             //début de l'accélération
