@@ -32,6 +32,10 @@ public class CollectItem : MonoBehaviour {
 
 	void OnDrawGizmos()
 	{
+        if (!pathParent)
+        {
+            return;
+        }
 		Vector3 from;
 		Vector3 to;
 		for (int a=0; a<pathParent.childCount; a++)
