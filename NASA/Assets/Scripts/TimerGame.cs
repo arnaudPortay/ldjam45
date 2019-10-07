@@ -38,8 +38,8 @@ public class TimerGame : MonoBehaviour
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         playerRigidbody = player.GetComponent<Rigidbody>();
-        initialPos = playerRigidbody.position;
-        initialRot = playerRigidbody.rotation;
+        initialPos = player.transform.position;
+        initialRot = player.transform.rotation;
         PlayerMouse_Behaviour = player.GetComponent<Mouse_Behaviour>();
         PlayAudio_Behaviour = player.GetComponent<Audio_Behaviour>();
 
@@ -66,7 +66,7 @@ public class TimerGame : MonoBehaviour
     protected void FixedUpdate ()
     {
         timertext.text = "Time Left : "+CurrentTime;
-        actualPosition = playerRigidbody.position;
+        actualPosition = player.transform.position;
         if (!started)
         {
             return;
@@ -85,6 +85,7 @@ public class TimerGame : MonoBehaviour
                 CurrentTime = StartTIme;
                 CurrentBreakTime = 0;
                 FallCase = false;
+                PlayerMouse_Behaviour.stopMovement(false);
             }
         }   
         else if (PlayerMouse_Behaviour.canMove) //other behaviour that restrict movement don't make timer run
@@ -110,11 +111,13 @@ public class TimerGame : MonoBehaviour
                 }
                 // Play part is finished, we go back to the beginning
                 CurrentBreakTime = BreakTime;           
-                PlayerMouse_Behaviour.canMove = false;
-                playerRigidbody.position = initialPos;
-                playerRigidbody.rotation = initialRot;
+                //PlayerMouse_Behaviour.canMove = false;
+                
+                player.transform.position = initialPos;
+                player.transform.rotation = initialRot;
                 actualPosition = initialPos; 
                 sk.rotationChange(-StartTIme/BreakTime);
+                PlayerMouse_Behaviour.stopMovement(true);
                 //changement de camera apres la première mort
                 if (firstDeath && cameraFollow)
                 {

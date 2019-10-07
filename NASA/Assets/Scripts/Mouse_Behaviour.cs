@@ -9,6 +9,7 @@ public class Mouse_Behaviour : MonoBehaviour
     Vector3 movement;                   // The vector to store the direction of the player's movement.                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     public bool canMove = true;
+    RigidbodyConstraints oldConstraints;
 
     void Start()
     {
@@ -42,5 +43,19 @@ public class Mouse_Behaviour : MonoBehaviour
 
         // Move the player to it's current position plus the movement.
         playerRigidbody.MovePosition (transform.position + movement);
+    }
+
+    public void stopMovement(bool sure)
+    {
+         Rigidbody rb = GetComponent<Rigidbody>();
+        if (sure)
+        {
+            oldConstraints = rb.constraints;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+        else
+        {
+            rb.constraints = oldConstraints;
+        }
     }
 }
