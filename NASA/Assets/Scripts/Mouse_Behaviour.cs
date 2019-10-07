@@ -15,6 +15,8 @@ public class Mouse_Behaviour : MonoBehaviour
     public Vector3 initialPos;
     public Quaternion initialRot;
 
+    public int deathCounter = 0;
+
     void Start()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
