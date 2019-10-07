@@ -33,13 +33,13 @@ public class ColorZone : MonoBehaviour
             if 
                 (mLight.enabled && mLight.color !=  mLastColorSeen)
             {
-                Debug.Log("Same color");
+                //Debug.Log("Same color");
                 if
                     (mColors[mColorToCompareIndex] == mLight.color)
                 {
                     mPlanes[mColorToCompareIndex].GetComponent<ModulatePanel>().Activate(true);
                     mColorToCompareIndex += 1;
-                    Debug.Log("+1");
+                    //Debug.Log("+1");
                 }
                 else
                 {

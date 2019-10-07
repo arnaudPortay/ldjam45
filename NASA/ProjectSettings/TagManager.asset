@@ -13,6 +13,7 @@ TagManager:
   - Musique
   - ColorZone
   - CheckPoint
+  - Main Audio
   layers:
   - Default
   - TransparentFX

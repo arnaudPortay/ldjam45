@@ -120,7 +120,7 @@ public class TimerGame : MonoBehaviour
                     cameraFollow.gameObject.SetActive(true);
                     firstDeath = false;
                 }  
-                PlayAudio_Behaviour.timerOut = true;        
+                PlayAudio_Behaviour.resetMusique(PlayerMouse_Behaviour.resetAudio);       
             }  
         }
         
