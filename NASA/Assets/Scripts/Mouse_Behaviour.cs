@@ -16,7 +16,7 @@ public class Mouse_Behaviour : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Store the input axes.
         float h = Input.GetAxisRaw("Vertical");

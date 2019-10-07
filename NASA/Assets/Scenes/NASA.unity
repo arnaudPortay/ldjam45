@@ -764,7 +764,7 @@ MonoBehaviour:
   RelatedPart: {fileID: 3815906325796984044}
   sideAxis: {x: 0, y: 1, z: 0}
   rotateSpeed: 200
-  canRotate: 0
+  canRotate: 1
 --- !u!114 &683816738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2581,6 +2581,7 @@ MonoBehaviour:
   CurrentTime: 1
   timertext: {fileID: 928115934}
   initialPos: {x: -5.022677, y: 0.1139955, z: 2.754143}
+  actualPosition: {x: 0, y: 0, z: 0}
   StartTIme: 10
   BreakTime: 2
   player: {fileID: 4642956849499231211}

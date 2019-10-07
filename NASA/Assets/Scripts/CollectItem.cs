@@ -26,6 +26,8 @@ public class CollectItem : MonoBehaviour {
 
     Vector3 oldPosition;
     Quaternion oldOrientation;
+
+    RigidbodyConstraints oldConstraints;
 	int index;
 
 	void OnDrawGizmos()
@@ -83,6 +85,16 @@ public class CollectItem : MonoBehaviour {
         relocate = sure;
         //cameraFollow.transform.rotation = Quaternion.Inverse(transform.rotation) * initialRotation;
         //cameraFollow.transform.position = transform.TransformVector(initialRelativPos);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (sure)
+        {
+            oldConstraints = rb.constraints;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+        else
+        {
+            rb.constraints = oldConstraints;
+        }
         Mouse_Behaviour behave = GetComponent<Mouse_Behaviour>();
         if (behave)
         {
