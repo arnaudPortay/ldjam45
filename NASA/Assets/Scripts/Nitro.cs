@@ -17,6 +17,7 @@ public class Nitro : Ability
     private Color newColour;
     private GameObject fill; 
     private Image fillImage;
+    public Text textNitro;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,7 @@ public class Nitro : Ability
         {
             test.SetActive(true);
             nitroSlider.enabled = true;
+            textNitro.enabled = true;
         
         }     
         acceleration();
