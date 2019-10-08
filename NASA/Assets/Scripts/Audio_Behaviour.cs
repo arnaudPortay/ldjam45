@@ -19,7 +19,7 @@ public class Audio_Behaviour : MonoBehaviour
     public float lowered = 0.5f;
     public float mainVolume =1.0f;
     float wait =0;
-
+    public float CurrentVolume =1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +42,7 @@ public class Audio_Behaviour : MonoBehaviour
     }
     public void startMusique()
     {
+        mAudioSource.volume = mainVolume;
         mAudioSource.Play();
     }
 
@@ -53,12 +54,14 @@ public class Audio_Behaviour : MonoBehaviour
     {
         mAudioSource.Pause();
         mAudioSource = source;
+        mAudioSource.volume = CurrentVolume;
         mAudioSource.UnPause();
     }
 
     // Update is called once per frame
     protected void  FixedUpdate()
     {
+        CurrentVolume = mAudioSource.volume;
         if (wait >0)
         {
             wait -= Time.fixedDeltaTime;

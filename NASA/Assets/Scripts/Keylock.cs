@@ -39,6 +39,7 @@ public class Keylock : MonoBehaviour
             {
                 if (Doors != null)
                 {
+                    Doors.GetComponent<BoxCollider>().enabled = false;
                     for (int i=0; i<Doors.transform.childCount; i++)
                     {
                         Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenDoor", true);

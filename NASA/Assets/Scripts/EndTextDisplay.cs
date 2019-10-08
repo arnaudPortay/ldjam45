@@ -38,6 +38,10 @@ public class EndTextDisplay : MonoBehaviour
             SpriteEnd.SetActive(true);
             GetComponent<TextMeshProUGUI>().text = "Congratulations ! \nYou won the game in " + mDeathCounter + " generations.";
             GetComponent<TextMeshProUGUI>().enabled = true;
+            for (int i=0; i<transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
             timerstarted = false;
         }
         else

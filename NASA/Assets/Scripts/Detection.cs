@@ -5,6 +5,7 @@ using UnityEngine;
 public class Detection : Ability
 {
     public GameObject RevealedDoor;
+    public GameObject RevealedDoorBottom;
     MeshRenderer DoorRenderer;
     public float newVisibility =0.1f;
     public float duration = 1.0f;
@@ -27,7 +28,8 @@ public class Detection : Ability
     {
         blinking = true;
         currentcolor = DoorRenderer.material.color;
-        RevealedDoor.GetComponent<MeshCollider>().enabled = false;
+        RevealedDoor.transform.parent.gameObject.GetComponent<BoxCollider>().enabled = false;
+        RevealedDoorBottom.GetComponent<MeshCollider>().enabled = true;
         minimap.SetActive(true);
     }
 

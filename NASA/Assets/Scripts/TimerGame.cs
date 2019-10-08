@@ -58,6 +58,7 @@ public class TimerGame : MonoBehaviour
         StartTIme += additionnal;
         BreakTime += additionnal/breakTimeModifier;
         timerSlider.maxValue = StartTIme;
+        sk.startUse(CurrentTime);
     }
 
     protected void FixedUpdate ()
@@ -83,6 +84,7 @@ public class TimerGame : MonoBehaviour
                 CurrentBreakTime = 0;
                 FallCase = false;
                 PlayerMouse_Behaviour.stopMovement(false);
+                sk.startUse(CurrentTime);
             }
         }   
         else if (PlayerMouse_Behaviour.canMove) //other behaviour that restrict movement don't make timer run
@@ -90,6 +92,7 @@ public class TimerGame : MonoBehaviour
             if // decompte
                 (CurrentTime > 0)
             {
+                 sk.unpauseUse();
                 // Play part
                 CurrentTime -= Time.fixedDeltaTime;
                 sk.rotationChange(CurrentTime/StartTIme);
@@ -115,6 +118,7 @@ public class TimerGame : MonoBehaviour
                 player.transform.position = PlayerMouse_Behaviour.initialPos;
                 player.transform.rotation = PlayerMouse_Behaviour.initialRot;
                 actualPosition = PlayerMouse_Behaviour.initialPos; 
+                sk.startRewind();
                 sk.rotationChange(-StartTIme/BreakTime);
                 PlayerMouse_Behaviour.stopMovement(true);
                 //changement de camera apres la première mort
@@ -126,6 +130,10 @@ public class TimerGame : MonoBehaviour
                 }  
                 PlayAudio_Behaviour.resetMusique(PlayerMouse_Behaviour.resetAudio);       
             }  
+        }
+        else
+        {
+            sk.pauseUse();
         }
         
 

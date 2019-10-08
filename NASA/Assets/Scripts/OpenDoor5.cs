@@ -22,6 +22,7 @@ public class OpenDoor5 : MonoBehaviour
         {
             if (Doors != null)
             {
+                Doors.GetComponent<BoxCollider>().enabled = false;
                 for (int i=0; i<Doors.transform.childCount; i++)
                 {
                     Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenSlideDoor", true);;
