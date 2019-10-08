@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class Keylock : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Keylock : MonoBehaviour
 
     string currentSequence = "";
     bool isInside = false;
+
+    bool isCapturingSequence = false;
 
     float counter = 0;
     // Start is called before the first frame update
@@ -26,16 +29,26 @@ public class Keylock : MonoBehaviour
     {
         if(isInside && Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Horizontal") == 0)
         {
+            if(Input.inputString.Length == 0)
+            {
+                return;
+            }
+
+            if(Input.inputString[0] == LockKey[0] && !isCapturingSequence)
+            {
+                resetSequenceCapture();
+                isCapturingSequence = true;
+            }
+
             currentSequence += Input.inputString;
             
             counter += Time.fixedDeltaTime;
             if (counter > MaxDuration)
             {
-                currentSequence = "";
-                counter = 0;
+                resetSequenceCapture();
             }
 
-            if(currentSequence == LockKey)
+            if(String.Compare(currentSequence, LockKey, true) == 0)
             {
                 if (Doors != null)
                 {
@@ -45,6 +58,7 @@ public class Keylock : MonoBehaviour
                         Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenDoor", true);
                     }
                 }
+                resetSequenceCapture();
             }
         }
     }
@@ -62,8 +76,14 @@ public class Keylock : MonoBehaviour
         if (pOther.gameObject.CompareTag ("Player"))
         {
             isInside = false;
-            currentSequence = "";
-            counter = 0;
+            resetSequenceCapture();
         }
+    }
+
+    void resetSequenceCapture()
+    {
+        isCapturingSequence = false;
+        currentSequence = "";
+        counter = 0;
     }
 }

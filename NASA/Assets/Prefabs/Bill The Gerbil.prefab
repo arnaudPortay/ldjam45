@@ -2111,6 +2111,7 @@ GameObject:
   - component: {fileID: 7482008475235229845}
   - component: {fileID: 1754283903983026243}
   - component: {fileID: 6697636921883014499}
+  - component: {fileID: 7663651116984517990}
   - component: {fileID: 7936578528407259105}
   - component: {fileID: 2659191671232027321}
   - component: {fileID: 1931727136707423318}
@@ -2131,8 +2132,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4540812634338492412}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6739, y: 0.11603, z: 2.5997}
+  m_LocalRotation: {x: -0.012021387, y: -0, z: -0, w: 0.99992776}
+  m_LocalPosition: {x: -4.6739, y: 0.11603, z: 2.576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2348059088863606345}
@@ -2148,7 +2149,7 @@ Transform:
   - {fileID: 3729876411657829162}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.378, y: 0, z: 0}
 --- !u!95 &7482008475235229845
 Animator:
   serializedVersion: 3
@@ -2195,9 +2196,23 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.30575132
-  m_Height: 1.2980791
+  m_Height: 1.1271691
   m_Direction: 2
-  m_Center: {x: 0, y: 0.2994209, z: -0.23295587}
+  m_Center: {x: 0, y: 0.2994219, z: -0.14750184}
+--- !u!136 &7663651116984517990
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540812634338492412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.30575132
+  m_Height: 0.8866788
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.29942536, z: -0.026674926}
 --- !u!65 &7936578528407259105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2209,8 +2224,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.55, y: 0.58995545, z: 1.2708769}
-  m_Center: {x: 0, y: 0.29873055, z: -0.24468064}
+  m_Size: {x: 0.55, y: 0.58995545, z: 0.6222305}
+  m_Center: {x: 0, y: 0.29873154, z: -0.17276229}
 --- !u!114 &2659191671232027321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2412,6 +2427,7 @@ MonoBehaviour:
   timerOut: 0
   lowered: 0.5
   mainVolume: 1
+  CurrentVolume: 1
 --- !u!82 &4431235486865385352
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2433,7 +2449,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 16806.375
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2984,6 +3000,8 @@ MonoBehaviour:
   rotationSpeed: 300
   baseSpeed: 300
   RotationAxis: {x: 0, y: 1, z: 0}
+  rewind: {fileID: 0}
+  use: {fileID: 0}
   factor: 1
   way: 1
   canRotate: 1
