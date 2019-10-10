@@ -6,7 +6,7 @@ public class OpenDoor5 : MonoBehaviour
 {
    public GameObject Doors;
    public GameObject player;
-   bool mContact = false;
+
    Mouse_Behaviour behave;
 
     // Start is called before the first frame update
@@ -18,27 +18,11 @@ public class OpenDoor5 : MonoBehaviour
     // Update is called once per frame
     protected void FixedUpdate()
     {
-        if (mContact || behave.mDoor5AlwaysOpen)
-        {
-            if (Doors != null)
-            {
-                Doors.GetComponent<BoxCollider>().enabled = false;
-                for (int i=0; i<Doors.transform.childCount; i++)
-                {
-                    Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenSlideDoor", true);;
-                }
-            }
+        if (Doors != null && behave.mDoor5AlwaysOpen && !areDoorsOpened())
+        {                            
+            openDoors();
         }
-        else if (!mContact && !behave.mDoor5AlwaysOpen)
-        {
-            if (Doors != null)
-            {
-                for (int i=0; i<Doors.transform.childCount; i++)
-                {
-                    Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenSlideDoor", false);;
-                }
-            }
-        }
+        
     }
 
     void OnTriggerEnter(Collider pOther) 
@@ -47,7 +31,11 @@ public class OpenDoor5 : MonoBehaviour
         if 
             (pOther.gameObject.CompareTag ("Player"))
         {
-            mContact = true;
+            //mContact = true;
+            if (Doors != null && !behave.mDoor5AlwaysOpen)
+            {                
+                openDoors();
+            }
         }
     }
 
@@ -57,7 +45,34 @@ public class OpenDoor5 : MonoBehaviour
         if 
             (pOther.gameObject.CompareTag ("Player"))
         {
-            mContact = false;
+            //mContact = false;
+            if (Doors != null && !behave.mDoor5AlwaysOpen)
+            {
+                closeDoors();
+            }
         }
+    }
+
+    void openDoors()
+    {
+        // Launch opening animation
+        for (int i=0; i<Doors.transform.childCount; i++)
+        {
+            Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenSlideDoor", true);;
+        }
+    }
+
+    void closeDoors()
+    {
+        // Launch closing animation
+        for (int i=0; i<Doors.transform.childCount; i++)
+        {
+            Doors.transform.GetChild(i).GetComponent<Animator>().SetBool("OpenSlideDoor", false);;
+        }
+    }
+
+    bool areDoorsOpened()
+    {
+        return Doors.transform.GetChild(0).GetComponent<Animator>().GetBool("OpenSlideDoor");
     }
 }
