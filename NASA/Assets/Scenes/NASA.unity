@@ -2608,7 +2608,32 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 2502203975881118265, guid: 710b34b0edfd6124c84c3200775ddf50,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695666576454475813, guid: 710b34b0edfd6124c84c3200775ddf50,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469484624682501897, guid: 710b34b0edfd6124c84c3200775ddf50,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -492420421572216379, guid: 710b34b0edfd6124c84c3200775ddf50,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -7462036371361415008, guid: 710b34b0edfd6124c84c3200775ddf50,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051415255134806348, guid: 710b34b0edfd6124c84c3200775ddf50,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -2682,31 +2707,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 4.2379
-      objectReference: {fileID: 0}
-    - target: {fileID: -492420421572216379, guid: 710b34b0edfd6124c84c3200775ddf50,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502203975881118265, guid: 710b34b0edfd6124c84c3200775ddf50,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 4695666576454475813, guid: 710b34b0edfd6124c84c3200775ddf50,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469484624682501897, guid: 710b34b0edfd6124c84c3200775ddf50,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 8051415255134806348, guid: 710b34b0edfd6124c84c3200775ddf50,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710b34b0edfd6124c84c3200775ddf50, type: 3}
@@ -7162,59 +7162,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
         type: 3}
-      propertyPath: m_SpotAngle
-      value: 43
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
-        type: 3}
-      propertyPath: m_DrawHalo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
-        type: 3}
-      propertyPath: m_Range
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.21698111
-      objectReference: {fileID: 0}
-    - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 30.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
-        type: 3}
-      propertyPath: m_BounceIntensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4636854725782308942, guid: 21b77cdad9fc115409a43e3955d57a8c,
-        type: 3}
-      propertyPath: m_Cookie
-      value: 
-      objectReference: {fileID: 2800000, guid: 8deb4c966ccdd6743aa29c18e6b0aecd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21b77cdad9fc115409a43e3955d57a8c, type: 3}
 --- !u!1 &9181482498801511448 stripped
